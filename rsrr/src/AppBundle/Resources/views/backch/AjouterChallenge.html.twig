@@ -1,0 +1,129 @@
+{% extends 'AppBundle:Layouts:layout.html.twig' %}
+{% block content %}
+    <form method="post">
+        <div class="tab-content">
+            <div class="tab-pane fade active in" id="hoshi">
+                <div class="row">
+                    <div class="col-md-4">
+                                <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="text" name="nom" id="input-4">
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+                                <span class="input__label-content input__label-content--hoshi">Nom</span>
+                                </label>
+                                </span>
+                    </div>
+                    <div class="col-md-4">
+                                <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="date" name="dateD" id="input-5">
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-2" for="input-5">
+                                <span class="input__label-content input__label-content--hoshi">Date debut</span>
+                                </label>
+                                </span>
+                    </div>
+                    <div class="col-md-4">
+                                <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="date" name="dateF" id="input-6">
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="input-6">
+                                <span class="input__label-content input__label-content--hoshi">Date fin</span>
+                                </label>
+                                </span>
+                    </div>
+                    <div class="col-md-4">
+                                <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="number" name="nbrparticipants" id="input-7">
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="input-7">
+                                <span class="input__label-content input__label-content--hoshi">Nbr Max</span>
+                                </label>
+                                </span>
+                    </div>
+                    <div class="col-md-4">
+                                <span class="input input--hoshi">
+                                <select class=" form-control" id="gov" name="LieuD">
+                                                <option value="">Choisissez Votre gouvernorat</option>
+                                                <option  value="Ariana">Ariana</option>
+                                                <option  value="Beja">Beja</option>
+                                                <option  value="Ben_Arous">Ben_Arous</option>
+                                                <option  value="Bizerte">Bizerte</option>
+                                                <option  value="Gabès">Gabès</option>
+                                                <option  value="Gafsa">Gafsa</option>
+                                                <option  value="Jendouba">Jendouba</option>
+                                                <option  value="Kairouan">Kairouan</option>
+                                                <option  value="Kasserine">Kasserine</option>
+                                                <option  value="Kébili">Kébili</option>
+                                                <option  value="La_Mannouba">La_Mannouba</option>
+                                                <option  value="Le_Kef">Le_Kef</option>
+                                                <option  value="Mahdia">Mahdia</option>
+                                                <option  value="Médinine">Médinine</option>
+                                                <option  value="Monastir">Monastir</option>
+                                                <option  value="Nabeul">Nabeul</option>
+                                                <option  value="Sfax">Sfax</option>
+                                                <option  value="Sidi Bouzid">Sidi Bouzid</option>
+                                                <option  value="Siliana">Siliana</option>
+                                                <option  value="Sousse">Sousse</option>
+                                                <option  value="Tataouine">Tataouine</option>
+                                                <option  value="Tozeur">Tozeur</option>
+                                                <option  value="Tunis">Tunis</option>
+                                                <option  value="Zaghouan">Zaghouan</option>
+
+                                            </select>
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="input-8">
+                                <span class="input__label-content input__label-content--hoshi">Lieu depart</span>
+                                </label>
+                                </span>
+                    </div>
+                    <div class="col-md-4">
+                                <span class="input input--hoshi" for="input-9">
+                               <select class=" form-control" id="gov" name="LieuA">
+                                                <option value="">Choisissez Votre gouvernorat</option>
+                                                <option  value="Ariana">Ariana</option>
+                                                <option  value="Beja">Beja</option>
+                                                <option  value="Ben_Arous">Ben_Arous</option>
+                                                <option  value="Bizerte">Bizerte</option>
+                                                <option  value="Gabès">Gabès</option>
+                                                <option  value="Gafsa">Gafsa</option>
+                                                <option  value="Jendouba">Jendouba</option>
+                                                <option  value="Kairouan">Kairouan</option>
+                                                <option  value="Kasserine">Kasserine</option>
+                                                <option  value="Kébili">Kébili</option>
+                                                <option  value="La_Mannouba">La_Mannouba</option>
+                                                <option  value="Le_Kef">Le_Kef</option>
+                                                <option  value="Mahdia">Mahdia</option>
+                                                <option  value="Médinine">Médinine</option>
+                                                <option  value="Monastir">Monastir</option>
+                                                <option  value="Nabeul">Nabeul</option>
+                                                <option  value="Sfax">Sfax</option>
+                                                <option  value="Sidi Bouzid">Sidi Bouzid</option>
+                                                <option  value="Siliana">Siliana</option>
+                                                <option  value="Sousse">Sousse</option>
+                                                <option  value="Tataouine">Tataouine</option>
+                                                <option  value="Tozeur">Tozeur</option>
+                                                <option  value="Tunis">Tunis</option>
+                                                <option  value="Zaghouan">Zaghouan</option>
+
+                                            </select>
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="input-">
+                                <span class="input__label-content input__label-content--hoshi">Lieu arrivée</span>
+                                </label>
+                                </span>
+                    </div>
+                    <div class="col-md-4">
+                                <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="file" name="image" id="input-6">
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="input-6">
+                                <span class="input__label-content input__label-content--hoshi">Image</span>
+                                </label>
+                                </span>
+                    </div>
+
+                    <div class="col-md-4">
+                                <span class="input input--hoshi">
+                          <input type="submit" class="btn btn-primary btn-sm" value="Ajouter" style="align-items: center">
+                                </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+{% endblock %}

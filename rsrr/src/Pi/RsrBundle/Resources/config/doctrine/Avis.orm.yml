@@ -1,0 +1,33 @@
+Pi\RsrBundle\Entity\Avis:
+    type: entity
+    table: avis
+    id:
+        idAvis:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_avis
+            generator:
+                strategy: IDENTITY
+    fields:
+        grade:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        idRando:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_rando
+        idUtilisateur:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: id_utilisateur
+    lifecycleCallbacks: {  }

@@ -1,0 +1,24 @@
+profil_index:
+    path:     /opa
+    defaults: { _controller: "AppBundle:Profil:index" }
+    methods:  GET
+
+profil_show:
+    path:     /{idProfil}/show
+    defaults: { _controller: "AppBundle:Profil:show" }
+    methods:  GET
+
+profil_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Profil:new" }
+    methods:  [GET, POST]
+
+profil_edit:
+    path:     /{idProfil}/edit
+    defaults: { _controller: "AppBundle:Profil:edit" }
+    methods:  [GET, POST]
+
+profil_delete:
+    path:     /{idProfil}/delete
+    defaults: { _controller: "AppBundle:Profil:delete" }
+    methods:  DELETE

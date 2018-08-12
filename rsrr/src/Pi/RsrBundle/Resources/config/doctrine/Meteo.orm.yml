@@ -1,0 +1,14 @@
+Pi\RsrBundle\Entity\Meteo:
+    type: entity
+    table: meteo
+    id:
+        idActu:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_actu
+            generator:
+                strategy: IDENTITY
+    lifecycleCallbacks: {  }

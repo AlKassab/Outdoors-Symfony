@@ -1,0 +1,143 @@
+
+    <div class="page-content">
+        <div >
+            <h3><i class="icon-bulb"></i>Modifier <strong>la randonnée du {{ rando.date|date('Y-m-d') }} à {{ rando.lieu }}</strong></h3>
+        </div>
+        <form method="POST">
+            <div class="row">
+                <div class="form-group">
+                    <div class="prepend-icon">
+                        <label class="form-label">Lieu</label>
+                        <select id="lieu" class="form-control" value="{{rando.lieu  }}">
+                            <option selected value="{{rando.lieu  }}">{{rando.lieu  }} </option>
+                            <option>El Feija </option>
+                            <option>Djerba</option>
+                            <option>Tamerza </option>
+                            <option>Zaghouan </option>
+                            <option>Tozeur </option>
+                            <option>Douz </option>
+                            <option>Boukornine </option>
+                            <option>Mides </option>
+                            <option>Gafsa </option>
+                            <option>Chott el jerid </option>
+                            <option>Bouhedma </option>
+                            <option>Tataouine </option>
+                            <option>El Kala </option>
+                            <option>El Haouaria </option>
+                            <option>Matmata </option>
+                            <option>Nafta </option>
+                            <option>Chenini </option>
+                            <option>Korbous </option>
+                            <option>Tabarka </option>
+                            <option>Kebili </option>
+                            <option>Ksar Hadada </option>
+                            <option>Tinija </option>
+                            <option>Jbil </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="prepend-icon">
+                        <label class="form-label">Date</label>
+                        <input type="datetime" id="date" class="form-control" value="{{rando.date|date('Y-m-d') }}" >
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="prepend-icon">
+                        <label class="form-label">Type</label>
+                        <select id="type" class="form-control" value="{{rando.type  }}">
+                            <option selected value="{{rando.type  }}">{{rando.type  }} </option>
+                            <option>En vélo </option>
+                            <option>A pied </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="prepend-icon">
+                        <label class="form-label">Difficulté</label>
+                        <select id="difficulte" class="form-control" value="{{rando.difficulte  }}" >
+                            <option selected value="{{rando.difficulte  }}">{{rando.difficulte  }} </option>
+                            <option>Facile </option>
+                            <option>Moyenne </option>
+                            <option>Difficile </option>
+                            <option>Très difficile </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="prepend-icon">
+                        <label class="form-label">Kilometrage</label>
+                        <input type="text" id="kilometrage" class="form-control" value="{{rando.kilometrage  }}" >
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="prepend-icon">
+                        <label class="form-label">Altitude</label>
+                        <input type="text" id="altitude" class="form-control" value="{{rando.altitude  }}" >
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="prepend-icon">
+                        <label class="form-label">Heure</label>
+                        <input type="time" id="heure" class="form-control" value="{{rando.heure|date('h-m')  }}" >
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="prepend-icon">
+                        <label class="form-label">Description</label>
+                        <input type="textarea" id="description" class="form-control" value="{{rando.description }}" >
+                    </div>
+                </div>
+            </div><div class="row">
+                <div class="form-group">
+                    <div class="prepend-icon">
+                        <label class="form-label">Prix</label>
+                        <input type="text" id="prix" class="form-control" value="{{rando.prix  }}" >
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="prepend-icon">
+                        <label class="form-label">Nombre de places</label>
+                        <input type="number" id="nbrRandonneur" class="form-control" value="{{rando.nbrRandonneur  }}" >
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="prepend-icon">
+                        <label class="form-label">Organisateur</label>
+                        <input type="text" id="organisateur" class="form-control" disabled value="{{rando.organisateur  }}" >
+                    </div>
+                </div>
+            </div>
+
+            <input type="submit"  value="Modifier" >
+            <br><br><br><br><br><br><br>
+        </form>
+
+
+
+
+    </div>
+    <div class="footer">
+        <div class="copyright">
+            <p class="pull-left sm-pull-reset"> <span>Copyright <span class="copyright">©</span> 2017 </span> <span>Troubleshooters</span>. <span>All rights reserved. </span> </p>
+            <p class="pull-right sm-pull-reset"> <span><a href="#" class="m-r-10">Support</a> | <a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span> </p>
+        </div>
+    </div>

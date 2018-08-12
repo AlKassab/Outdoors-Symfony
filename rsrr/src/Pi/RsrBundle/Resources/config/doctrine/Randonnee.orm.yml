@@ -1,0 +1,74 @@
+Pi\RsrBundle\Entity\Randonnee:
+    type: entity
+    table: randonnees
+    id:
+        idRan:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_ran
+            generator:
+                strategy: IDENTITY
+    fields:
+        lieu:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        date:
+            type: date
+            nullable: false
+        description:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        prix:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        duree:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        kilometrage:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        altitude:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        nbrRandonneur:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: nbr_randonneur
+        type:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        difficulte:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+        organisateur:
+            type: string
+            nullable: false
+            length: 200
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

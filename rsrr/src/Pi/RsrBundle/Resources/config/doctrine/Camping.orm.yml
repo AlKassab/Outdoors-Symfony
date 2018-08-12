@@ -1,0 +1,59 @@
+Pi\RsrBundle\Entity\Camping:
+    type: entity
+    table: camping
+    indexes:
+        id:
+            columns:
+                - id
+    id:
+        idCamp:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_camp
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: Description
+        date:
+            type: date
+            nullable: false
+            column: Date
+        lieu:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        image:
+            type: blob
+            nullable: false
+            length: null
+            options:
+                fixed: false
+    manyToOne:
+        id:
+            targetEntity: Utilisateurs
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id:
+                    referencedColumnName: id_utilisateur
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

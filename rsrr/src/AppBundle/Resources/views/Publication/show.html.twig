@@ -1,0 +1,48 @@
+{% extends 'AppBundle:Layouts:layout.html.twig' %}
+
+{% block body %}
+    <h1>Publication</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ publication.id }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ publication.image }}</td>
+            </tr>
+            <tr>
+                <th>Texte</th>
+                <td>{{ publication.texte }}</td>
+            </tr>
+            <tr>
+                <th>Video</th>
+                <td>{{ publication.video }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{% if publication.dateCreation %}{{ publication.dateCreation|date() }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datemodification</th>
+                <td>{% if publication.dateModification %}{{ publication.dateModification|date() }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('publication_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('publication_edit', { 'id': publication.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

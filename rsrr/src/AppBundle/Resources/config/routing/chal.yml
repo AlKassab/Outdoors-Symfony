@@ -1,0 +1,43 @@
+sprint_web_homepage:
+    path:     /pk
+    defaults: { _controller: AppBundle:Default:index }
+Index:
+    path:     /ind
+    defaults: { _controller: AppBundle:Default:indexx }
+
+Liste_CH:
+    path:     /listeChallenge
+    defaults: { _controller: AppBundle:Backch:lister }
+
+Ajouter_CH:
+    path:     /AjoutCha
+    defaults: { _controller: AppBundle:Backch:ajouter }
+app_back_hompage:
+    path:     /back
+    defaults: { _controller: AppBundle:Backch:home }
+
+Liste_CHF:
+    path:     /listeChallengeFront
+    defaults: { _controller: AppBundle:Frontch:lister }
+
+MAP:
+    path:     /MAP
+    defaults: { _controller: AppBundle:Frontch:map }
+Details:
+    path:     /details
+    defaults: { _controller: AppBundle:Frontch:participer }
+Delete:
+    path:     /delete
+    defaults: { _controller: AppBundle:Backch:Delete }
+Modifier:
+    path:     /modifier
+    defaults: { _controller: AppBundle:Backch:Modifier}
+front_participe:
+    path:     /participer
+    defaults: { _controller: AppBundle:Frontch:ShowDetails }
+404:
+    path:     /404
+    defaults: { _controller: AppBundle:Frontch:denied }
+vote_prod:
+    path:     /voteprod/{idprod}/{nbrevote}
+    defaults: { _controller:  AppBundle:Frontch:newVote }

@@ -1,0 +1,59 @@
+{% extends 'AppBundle:Layouts:layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href="{{ asset('plugins/videojs/video.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/magnific/magnific-popup.min.css') }}" rel="stylesheet">
+
+{% endblock stylesheets %}
+{% block content %}
+
+<div class="col-lg-8 box-form col-lg-offset-2">
+    <div class="row">
+        {% for rando  in randonnees  %}
+            <div class="col-md-4">
+                <div class=" plans pricing-table ">
+                    <div class="plans clearfix">
+                        <div class="plan">
+                            <div class="plan-header bg-primary">
+                                <div class="title"><span>{{ rando.lieu }}</span></div>
+                                <div class="price"><span class="amount">{{ rando.prix }}</span><span> dt</span></div>
+                                <div class="plan-top-btn text-center"><span class="offer">{{ rando.date|date('Y-m-d') }}</span></div>
+                            </div>
+                            <div class="description">
+                                <div class="p-item">
+                                    <p class="plan-item"><b>Kilometrage: </b>{{ rando.kilometrage }} klm</p>
+                                </div>
+                                <div class="p-item">
+                                    <p class="plan-item"><b>Altitude: </b> {{ rando.altitude }} cm</p>
+                                </div>
+                                <div class="p-item">
+                                    <p class="plan-item"><b> Heure: </b> {{ rando.heure }} H</p>
+                                </div>
+                                <div class="p-item">
+                                    <p class="plan-item"><b> Nbr de places: </b> {{ rando.nbrRandonneur }}</p>
+                                </div>
+                                <div class="text-center plan-bottom-btn p-b-10">
+                                    <a class="btn btn-primary" data-target="#myModal" href="{{  path('participer', {'id': rando.idRan }) }}"><i class="icon-check" >  Participer</i></a>
+                                    <a class="btn btn-primary" href="{{  path('info', {'id':rando.idRan }) }}"><i class="icon-plus" > Plus d'info</i></a>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<div>
+
+{% endblock content %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/pages/timeline.js') }}"></script>
+    <script src="{{ asset('plugins/videojs/video.js') }}"></script>
+
+{% endblock javascripts %}

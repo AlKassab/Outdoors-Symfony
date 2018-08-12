@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="admin-themes-lab">
+    <meta name="author" content="themes-lab">
+    <link rel="shortcut icon" href=" {{asset('global/images/favicon.png')}}" type="image/png">
+    <title>Make Admin Template &amp; Builder</title>
+    <link href=" {{asset('global/css/style.css')}}"  rel="stylesheet">
+    <link href=" {{asset('global/css/theme.css')}}" rel="stylesheet">
+    <link href=" {{asset('global/css/ui.css')}}" rel="stylesheet">
+    <link href=" {{asset('admin/md-layout3/material-design/css/material.css')}}" rel="stylesheet">
+    <link href=" {{asset('admin/md-layout3/css/layout.css')}}"  rel="stylesheet">
+    <script src=" {{asset('global/plugins/modernizr/modernizr-2.6.2-respond-1.1.0.min.js')}}" ></script>
+</head>
+<body class="sidebar-light fixed-topbar theme-sltl bg-light-dark color-default">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<section>
+    <!-- BEGIN SIDEBAR -->
+    <div class="sidebar">
+        <div class="logopanel">
+            <h1>
+                <a href="#"></a>
+            </h1>
+        </div>
+        <div class="sidebar-inner">
+            <ul class="nav nav-sidebar">
+                <li><a href="dashboard.html"><i class="icon-home"></i><span>Acceuil</span></a></li>
+                <li class="nav-parent">
+                    <a href="#"><i class="fa fa-binoculars"></i><span>Randonnées</span> <span class="fa arrow"></span></a>
+                    <ul class="children collapse">
+                        <li><a href="{{ url('admin_list') }}"> Liste des Randonnées</a></li>
+                        <li><a href="{{ url('cal') }}"> Calendrier</a></li>
+                        <li><a href="{{ url('mapadd') }}"> Map</a></li>
+                    </ul>
+                </li>
+                <li class="nav-parent">
+                    <a href=""><i class="glyphicon glyphicon-tent"></i><span>Campings</span> <span class="fa arrow"></span></a>
+
+                </li>
+                <li class="nav-parent">
+                    <a href=""><i class="icon-layers"></i><span>Challanges</span><span class="fa arrow"></span></a>
+
+                </li>
+                <li class="nav-parent">
+                    <a href=""><i class="icon-users"></i><span>Users</span><span class="fa arrow"></span></a>
+
+            </ul>
+            </li>
+
+
+            </ul>
+        </div>
+    </div>
+    <!-- END SIDEBAR -->
+    <div class="main-content">
+        <!-- BEGIN TOPBAR -->
+        <div class="topbar">
+            <div class="header-left">
+                <div class="topnav">
+                    <a class="menutoggle" href="#" data-toggle="sidebar-collapsed"><span class="menu__handle"><span>Menu</span></span></a>
+                    <ul class="nav nav-icons">
+                        <li><a href="#" class="toggle-sidebar-top"><span class="icon-user-following"></span></a></li>
+                        <li><a href="mailbox.html"><span class="octicon octicon-mail-read"></span></a></li>
+                        <li><a href="#"><span class="octicon octicon-flame"></span></a></li>
+                        <li><a href="builder-page.html"><span class="octicon octicon-rocket"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="header-right">
+                <ul class="header-menu nav navbar-nav">
+                    <!-- BEGIN USER DROPDOWN -->
+                    <li class="dropdown" id="language-header">
+                        <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <i class="icon-globe"></i>
+                            <span>Language</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#" data-lang="en"><img src=" {{asset('global/images/flags/usa.png')}}" alt="flag-english"> <span>English</span></a>
+                            </li>
+                            <li>
+                                <a href="#" data-lang="es"><img src=" {{asset('global/images/flags/spanish.png')}}" alt="flag-english"> <span>Español</span></a>
+                            </li>
+                            <li>
+                                <a href="#" data-lang="fr"><img src=" {{asset('global/images/flags/french.png')}}" alt="flag-english"> <span>Français</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END USER DROPDOWN -->
+
+                    <!-- CHAT BAR ICON -->
+                    <li id="quickview-toggle"><a href="#"><i class="icon-bubbles"></i></a></li>
+                </ul>
+            </div>
+            <!-- header-right -->
+        </div>
+        <!-- END TOPBAR -->
+        <!-- BEGIN PAGE CONTENT -->
+        <div class="page-content page-pricing-table open">
+            <div class="header">
+
+            </div>
+            <div class="row">
+                {% for rando  in randonnees  %}
+                    <div class="col-md-4">
+                        <div class=" plans pricing-table ">
+                            <div class="plans clearfix">
+                                <div class="plan">
+                                    <div class="plan-header bg-primary">
+                                        <div class="title"><span>{{ rando.lieu }}</span></div>
+                                        <div class="price"><span class="amount">{{ rando.prix }}</span><span> dt</span></div>
+                                        <div class="plan-top-btn text-center"><span class="offer">{{ rando.date|date('Y-m-d') }}</span></div>
+                                    </div>
+                                    <div class="description">
+                                        <div class="p-item">
+                                            <p class="plan-item"><b>Kilometrage: </b>{{ rando.kilometrage }} klm</p>
+                                        </div>
+                                        <div class="p-item">
+                                            <p class="plan-item"><b>Altitude: </b> {{ rando.altitude }} cm</p>
+                                        </div>
+                                        <div class="p-item">
+                                            <p class="plan-item"><b> Heure: </b> {{ rando.heure|date('h-m') }} H</p>
+                                        </div>
+                                        <div class="p-item">
+                                            <p class="plan-item"><b> Nbr de places: </b> {{ rando.nbrRandonneur }}</p>
+                                        </div>
+                                        <div class="text-center plan-bottom-btn p-b-10">
+                                            <a class="btn btn-primary" href="{{  path('del', {'id':rando.idRan }) }}"><i class="icon-trash" >  Supprimer </i></a>
+                                            <a class="btn btn-primary" href="{{  path('info', {'id':rando.idRan }) }}"><i class="icon-calendar" > Voir details </i></a>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+
+
+            <!-- MODALS ICONS -->
+
+            <!-- Add Icons Contect Menu -->
+
+            <div class="footer">
+                <div class="copyright">
+                    <p class="pull-left sm-pull-reset">
+                        <span>Copyright <span class="copyright">©</span> 2017 </span>
+                        <span>Troubleshooters</span>.
+                        <span>All rights reserved. </span>
+                    </p>
+                    <p class="pull-right sm-pull-reset">
+                        <span><a href="#" class="m-r-10">Support</a> | <a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE CONTENT -->
+    </div>
+    <!-- END MAIN CONTENT -->
+</section>
+<!-- BEGIN QUICKVIEW SIDEBAR -->
+<div id="quickview-sidebar">
+    <div class="quickview-header">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#chat" data-toggle="tab">Chat</a></li>
+            <li><a href="#notes" data-toggle="tab">Notes</a></li>
+            <li><a href="#settings" data-toggle="tab" class="settings-tab">Settings</a></li>
+        </ul>
+    </div>
+    <div class="quickview">
+        <div class="tab-content">
+            <div class="tab-pane fade active in" id="chat">
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- END QUICKVIEW SIDEBAR -->
+
+    <!-- BEGIN PRELOADER -->
+    <div class="loader-overlay">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <!-- END PRELOADER -->
+    <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
+    <script src=" {{asset('global/plugins/jquery/jquery-1.11.1.min.js')}}"></script>
+    <script src=" {{asset('global/plugins/jquery/jquery-migrate-1.2.1.min.js')}}"></script>
+    <script src=" {{asset('global/plugins/jquery-ui/jquery-ui-1.11.2.min.js')}}"></script>
+    <script src=" {{asset('global/plugins/gsap/main-gsap.min.js')}}"></script>
+    <script src=" {{asset('global/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src=" {{asset('global/plugins/jquery-cookies/jquery.cookies.min.js')}}"></script> <!-- Jquery Cookies, for theme -->
+    <script src=" {{asset('global/plugins/jquery-block-ui/jquery.blockUI.min.js')}}"></script> <!-- simulate synchronous behavior when using AJAX -->
+    <script src=" {{asset('global/plugins/bootbox/bootbox.min.js')}}"></script> <!-- Modal with Validation -->
+    <script src=" {{asset('global/plugins/mcustom-scrollbar/jquery.mCustomScrollbar.concat.min.js')}}"></script> <!-- Custom Scrollbar sidebar -->
+    <script src=" {{asset('global/plugins/bootstrap-dropdown/bootstrap-hover-dropdown.min.js')}}"></script> <!-- Show Dropdown on Mouseover -->
+    <script src=" {{asset('global/plugins/charts-sparkline/sparkline.min.js')}}"></script> <!-- Charts Sparkline -->
+    <script src=" {{asset('global/plugins/retina/retina.min.js')}}"></script> <!-- Retina Display -->
+    <script src=" {{asset('global/plugins/select2/select2.min.js')}}"></script> <!-- Select Inputs -->
+    <script src=" {{asset('global/plugins/icheck/icheck.min.js')}}"></script> <!-- Checkbox & Radio Inputs -->
+    <script src=" {{asset('global/plugins/backstretch/backstretch.min.js')}}"></script> <!-- Background Image -->
+    <script src=" {{asset('global/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script> <!-- Animated Progress Bar -->
+    <script src=" {{asset('global/plugins/charts-chartjs/Chart.min.js')}}"></script>
+    <script src=" {{asset('global/js/builder.js')}}"></script> <!-- Theme Builder -->
+    <script src=" {{asset('global/js/sidebar_hover.js')}}"></script> <!-- Sidebar on Hover -->
+    <script src=" {{asset('global/js/widgets/notes.js')}}"></script> <!-- Notes Widget -->
+    <script src=" {{asset('global/js/quickview.js')}}"></script> <!-- Chat Script -->
+    <script src=" {{asset('global/js/pages/search.js')}}"></script> <!-- Search Script -->
+    <script src=" {{asset('global/js/plugins.js')}}"></script> <!-- Main Plugin Initialization Script -->
+    <script src=" {{asset('global/js/application.js')}}"></script> <!-- Main Application Script -->
+    <!-- BEGIN PAGE SCRIPT -->
+    <script src=" {{asset('global/plugins/summernote/summernote.js')}}"></script>
+    <script src=" {{asset('global/plugins/bootstrap-slider/bootstrap-slider.js')}}"></script>
+    <script src=" {{asset('global/js/pages/pricing_table.js')}}"></script>
+    <!-- END PAGE SCRIPTS -->
+    <script src=" {{asset('admin/md-layout3/material-design/js/material.js')}}"></script>
+    <script src=" {{asset('admin/layout3/js/layout.js')}}"></script>
+    <script>
+        $.material.init();
+    </script>
+</body>
+</html>

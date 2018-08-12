@@ -1,0 +1,11 @@
+private_message_index:
+    path: /private-message
+    defaults: { _controller: AppBundle:PrivateMessage:indexPrivateMessage }
+
+private_message_sent:
+    path: /private-message/sent
+    defaults: { _controller: AppBundle:PrivateMessage:sent }
+
+private_message_notification:
+    path: /private-message/notification/get
+    defaults: { _controller: AppBundle:PrivateMessage:notReaded }

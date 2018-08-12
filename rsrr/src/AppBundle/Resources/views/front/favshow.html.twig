@@ -1,0 +1,82 @@
+
+
+{% extends 'AppBundle:Layouts:layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href="{{ asset('plugins/videojs/video.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/magnific/magnific-popup.min.css') }}" rel="stylesheet">
+
+{% endblock stylesheets %}
+{% block content %}
+
+
+    <div class="col-lg-8 box-form col-lg-offset-2">
+    <h3><i class="icon-layers"></i> la listes des <strong>Annonces</strong></h3>
+        <div class="breadcrumb-wrapper">
+
+            <div class="m-b-10 f-left">
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 portlets">
+                <div class="panel">
+
+                    <div class="panel-content">
+                        <table class="table table-hover table-dynamic filter-head">
+                            <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Titre</th>
+                                <th>Type</th>
+                                <th>Catégorie</th>
+                                <th>Prix</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for aa in annonce %}
+                                <tr>
+                                    <td> {{ socialButtons() }}<br>
+
+                                        <img width="100" height="100" src="{{ asset('images/products/'~aa.imageName) }}" alt="9"/></td>
+                                    <td><a href="{{ path('detail_annonce',{'id':aa.idAnnonce}) }}">{{ aa.nom }}</a></td>
+                                    <td>{{ aa.type }}</td>
+                                    <td>{{ aa.categorie }}</td>
+                                    <td>{{ aa.prix }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+        {% endblock content %}
+        {% block javascripts %}
+            {{ parent() }}
+            <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script> <!-- Tables Filtering, Sorting & Editing -->
+            <script src="{{ asset('js/pages/table_dynamic.js') }}"></script>
+            <script src="{{ asset('js/pages/timeline.js') }}"></script>
+            <script src="{{ asset('plugins/videojs/video.js') }}"></script>
+            <script>
+                $(window).load(function () {
+                    var $container = $('.portfolioContainer');
+                    $container.isotope();
+                    $('.portfolioFilter a').click(function () {
+                        $('.portfolioFilter .current').removeClass('current');
+                        $(this).addClass('current');
+                        var selector = $(this).attr('data-filter');
+                        $container.isotope({
+                            filter: selector
+                        });
+                        return false;
+                    });
+                });
+            </script>
+        {% endblock javascripts %}

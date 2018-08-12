@@ -1,0 +1,71 @@
+ajoutRando:
+    path: /addRando
+    defaults: { _controller: AppBundle:Randonnees:ajout  }
+
+affichRando:
+    path: /showRando
+    defaults: { _controller: AppBundle:Randonnees:affichage  }
+
+participer:
+    path: /joinRando
+    defaults: { _controller: AppBundle:Randonnees:participer  }
+
+info:
+    path: /infoRando
+    defaults: { _controller: AppBundle:Randonnees:info  }
+
+modif:
+    path: /updateRando
+    defaults: { _controller: AppBundle:Randonnees:update  }
+
+supp:
+    path: /deleteRando
+    defaults: { _controller: AppBundle:Randonnees:delete  }
+
+del:
+    path: /deleteRando
+    defaults: { _controller: AppBundle:Randonnees:del }
+
+mesRando:
+    path: /myRando
+    defaults: { _controller: AppBundle:Randonnees:Mine  }
+
+expire:
+    path: /archive
+    defaults: { _controller: AppBundle:Randonnees:archive  }
+
+payment:
+    path:     /TestMoney
+    defaults: { _controller: AppBundle:Payment:preparePaypalExpressCheckoutPayment }
+
+payment_done:
+    path:     /donemoney
+    defaults: { _controller: AppBundle:Payment:done }
+
+mapadd:
+    path:     /addLocation
+    defaults: { _controller: AppBundle:map:add}
+
+map:
+    path:     /addmap
+    defaults: { _controller: AppBundle:map:ajout}
+
+seenNotif:
+    path:     /seen
+    defaults: { _controller: AppBundle:Randonnees:seen}
+
+admin_page:
+    path:     /admin
+    defaults: { _controller: AppBundle:map:admin }
+
+admin_list:
+    path:     /adminlist
+    defaults: { _controller: AppBundle:Randonnees:adminlist}
+
+cal:
+    path:     /cal
+    defaults: { _controller: AppBundle:Randonnees:cal}
+
+notif:
+    path:     /notif
+    defaults: { _controller: AppBundle:Randonnees:notif}

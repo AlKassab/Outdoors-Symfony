@@ -1,0 +1,33 @@
+Pi\RsrBundle\Entity\Message:
+    type: entity
+    table: messages
+    id:
+        idM:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_m
+            generator:
+                strategy: IDENTITY
+    fields:
+        contenu:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        destinataire:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        expediteur:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,21 @@
+Pi\RsrBundle\Entity\Conseils:
+    type: entity
+    table: conseils
+    id:
+        idConseil:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_conseil
+            generator:
+                strategy: IDENTITY
+    fields:
+        contenu:
+            type: string
+            nullable: false
+            length: 200
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

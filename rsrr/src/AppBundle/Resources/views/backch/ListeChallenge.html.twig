@@ -1,0 +1,25 @@
+{% extends 'AppBundle:Layouts:layout.html.twig' %}
+{% block content %}
+    <div class="panel-content">
+        <div id="table-editable_wrapper" class="dataTables_wrapper form-inline no-footer"><div class="row"><div class="col-md-6 filter-left"><div id="table-editable_filter" class="dataTables_filter"><label><input placeholder="Search a user..." type="search" class="form-control" aria-controls="table-editable"></label></div></div><div class="col-md-6"><div class="DTTT_container btn-group"><a class="btn btn-default DTTT_button DTTT_button_pdf" id="ToolTables_table-editable_0"><span><i class="fa fa-file-pdf-o"></i></span><div style="position: absolute; left: 0px; top: 0px; width: 63px; height: 35px; z-index: 99;"><embed id="ZeroClipboard_TableToolsMovie_1" src="{{ asset('') }}plugins/datatables/swf/copy_csv_xls_pdf.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="63" height="35" name="ZeroClipboard_TableToolsMovie_1" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=1&amp;width=63&amp;height=35" wmode="transparent"></div></a><a class="btn btn-default DTTT_button DTTT_button_print" id="ToolTables_table-editable_1" title="View print view"><span><i class="icon-printer"></i></span></a><a class="btn btn-default DTTT_button DTTT_button_xls" id="ToolTables_table-editable_2"><span><i class="fa fa-file-excel-o"></i></span><div style="position: absolute; left: 0px; top: 0px; width: 62px; height: 35px; z-index: 99;"><embed id="ZeroClipboard_TableToolsMovie_2" src="{{ asset('') }}plugins/datatables/swf/copy_csv_xls_pdf.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="62" height="35" name="ZeroClipboard_TableToolsMovie_2" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=2&amp;width=62&amp;height=35" wmode="transparent"></div></a><a class="btn btn-default DTTT_button DTTT_button_csv" id="ToolTables_table-editable_3"><span><i class="fa fa-table"></i></span><div style="position: absolute; left: 0px; top: 0px; width: 64px; height: 35px; z-index: 99;"><embed id="ZeroClipboard_TableToolsMovie_3" src="{{ asset('') }}plugins/datatables/swf/copy_csv_xls_pdf.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="64" height="35" name="ZeroClipboard_TableToolsMovie_3" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=3&amp;width=64&amp;height=35" wmode="transparent"></div></a></div></div></div><table class="table table-hover dataTable no-footer" id="table-editable" role="grid" aria-describedby="table-editable_info">
+                <thead>
+                <tr role="row"><th class="sorting_asc" rowspan="1" colspan="1" aria-label="First Name" style="width: 134px;">Name</th><th class="sorting" tabindex="0" aria-controls="table-editable" rowspan="1" colspan="1" aria-label="Last Name: activate to sort column ascending" style="width: 160px;"> Date de debut</th><th class="sorting" tabindex="0" aria-controls="table-editable" rowspan="1" colspan="1" aria-label="Points: activate to sort column ascending" style="width: 119px;">Date de fin</th><th class="sorting" tabindex="0" aria-controls="table-editable" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 131px;">Nombre de participant Max</th><th class="text-right sorting" tabindex="0" aria-controls="table-editable" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 142px;">Lieu de depart</th><th class="text-right sorting" tabindex="0" aria-controls="table-editable" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 142px;">Lieu d'arrivée</th><th class="text-right sorting" tabindex="0" aria-controls="table-editable" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 142px;">Action</th></tr>
+                </thead>
+                <tbody>
+                     {% for c in challenge %}
+                <tr role="row" class="odd">
+                    <td class="sorting_1"> {{ c.nom }}</td>
+                    <td>{{ c.dateDebut |date }}</td>
+                    <td>{{ c.dateFin |date}}</td>
+                    <td>{{ c.nbrPart }}</td>
+                    <td>{{ c.lieuArrivee }}</td>
+                    <td>{{ c.lieuDepart }}</td>
+                    <td class="text-right"><a class="edit btn btn-sm btn-default" href="{{ path('Modifier',{'id':c.idChal}) }}"><i  class="icon-note"></i></a>  <a class="delete btn btn-sm btn-danger" href="{{ path('Delete',{'id':c.idChal}) }}"><i class="icons-office-52"></i></a>
+                    </td>
+                </tr>
+{% endfor %}
+                </tbody>
+            </table>
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,3 @@
+pi_rsr_homepage:
+    path:     /
+    defaults: { _controller: PiRsrBundle:Default:index }

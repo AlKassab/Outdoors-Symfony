@@ -1,0 +1,38 @@
+{% extends 'AppBundle:Layouts:layout.html.twig' %}
+{% block pagestyle %}
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href="{{ asset('plugins/videojs/video.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/magnific/magnific-popup.min.css') }}" rel="stylesheet">
+
+{% endblock pagestyle %}
+{% block PageContent %}
+
+    <div class="page-content">
+        Votre nouveau solde est {{ solde }} $<br>
+<fieldset>
+    <br>
+    <h1>Reçu</h1>
+    Reçu d'achat d'un<strong>  {{ annonce.nom }}</strong><br>
+    le <strong>{{ "now"|date }}</strong><br>
+        pour la somme de <strong>{{ annonce.prix }} $</strong>
+    <table><tr>
+            <td>signature</td>
+            <td><img height="50" width="50" src="{{ asset('images/sig.png') }}"></td>
+        </tr></table>
+
+</fieldset>
+
+
+    </div>
+
+
+
+
+
+
+{% endblock PageContent %}
+{% block JavaScript %}
+    <script src="{{ asset('js/pages/timeline.js') }}"></script>
+    <script src="{{ asset('plugins/videojs/video.js') }}"></script>
+
+{% endblock JavaScript %}

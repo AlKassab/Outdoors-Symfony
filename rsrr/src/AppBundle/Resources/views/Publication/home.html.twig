@@ -1,0 +1,319 @@
+{% extends 'AppBundle:Layouts:layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href="{{ asset('plugins/videojs/video.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/magnific/magnific-popup.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/hover-effects/hover-effects.min.css') }}" rel="stylesheet">
+{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- BEGIN PAGE CONTENT -->
+    <div class="col-lg-6 box-form col-lg-offset-2">
+
+
+            <div class="profil-content" id="profil-content">
+
+
+
+
+                                <div class="item m-b-30">
+                                    {{ form_start(form, {'method': 'post'}) }}
+                                        <div class="item-textarea">
+                                            {{ form_widget(form.texte, { 'attr': {'class': 'form-control form-white autosize','placeholder': 'ecris quelque chose', 'rows':'5'} }) }}
+                                        </div>
+                                        <div class="item-footer clearfix">
+                                            <div class="footer-actions pull-left">
+                                                <i class="icon-rounded-marker"></i>
+                                                <label for="appbundle_publication_image">
+                                                    <i class="icon-rounded-camera"> </i>
+                                                </label>
+                                                {{ form_widget(form.image, { 'attr': {'style': 'display: none','class':'form-control'} }) }}
+
+                                                <i class="icon-rounded-paperclip-oblique"></i>
+                                                <i class="icon-rounded-alarm-clock"></i>
+                                            </div>
+
+                                            <input type="submit" class="pull-right btn btn-primary btn-square" value="post">
+                                        </div>
+
+                                    {{ form_end(form) }}
+                                </div>
+                            </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8 box-form col-lg-offset-2">
+
+            <!-- BEGIN TIMELINE CONTENT -->
+            <div class="timeline-btn-day"> <i class="icon-custom-left"></i>
+                <button type="button" class="btn btn-primary f-16"><strong>Le Fil d'Actu</strong></button>
+            </div>
+            <div id="timeline">
+
+
+                {% for publication in publications %}
+                {% if publication.image != null %}
+
+
+                <div class="col-lg-8 box-form col-lg-offset-2">
+                            <div class="profil-content">
+                                <div class="row">
+                                        <div class="row">
+
+                                                <div class="item item-comment">
+                                                    <div>
+                                                    <div class="user">
+                                                        <img alt="Profile Image" src="{{ asset('images/profil_page/friend2.jpg') }}">
+                                                        <h5 class="name">{{ publication.idProfil.user.username}} </h5>
+                                                        <div class="clearfix">
+
+
+                                                                <div class="panel">
+
+                                                                        <div class="control-btn">
+                                                                            <a class="hidden" id="dropdownMenu1" data-toggle="dropdown"><i class="icon-settings"></i></a><ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1"><li><a class="modifj"   >Modifier</a></li><li><a onclick="suppButtons({{ publication.id }})" >Supprimmer</a></li><li><a href="#">Something else here</a></li></ul><a href="#" class="panel-maximize hidden"><i class="icon-size-fullscreen"></i></a><a class="panel-toggle"><i class="fa fa-angle-down"></i></a>
+                                                                        </div>
+
+
+                                                                </div>
+
+                                                            <p class="place"><i class="icon-pointer"></i> NYC, New York</p>
+                                                            <p class="time"> {% if publication.dateCreation %}{{ publication.dateCreation|date('H:i') }} le {% if publication.dateCreation %}{{ publication.dateCreation|date('Y-m-d') }}{% endif %} {% endif %}  <i class="fa fa-clock-o"></i> </p>
+                                                        </div>
+                                                        <div class="comment">
+
+
+
+                                                           <textarea title=""  name="" class="c-primary m-b-0" id="newtext"  readonly="readonly">{{ publication.texte }}</textarea>
+                                                                <button class="btnmodif"  style="display: none" onclick="modifButtons({{ publication.id }})" >edit</button>
+
+                                                        </div>
+                                                    </div></div>
+                                                    <div class="pubimg"  onload="checkimg({{ publication.image }})">
+                                                        <div class="portfolioContainer grid" style="position: relative; height: 1700.16px;">
+
+                                                                <figure class="animal effect-zoe magnific" data-mfp-src="{{ asset('uploads/media/'~publication.idProfil.idProfil~'_usermedia/publications/images/'~publication.image) }}" style="position: absolute; left: 0px; top: 5px;">
+
+                                                                    <img  src=" {{ publication.image }}" alt="9">
+                                                                    <figcaption>
+                                                                        <h2>Beautiful <span>Hover</span></h2>
+                                                                        <i class="fa fa-eye"></i>
+                                                                    </figcaption>
+                                                                </figure>
+
+                                                            </div>
+                                                    </div>
+                                                    <div class="more">
+                                                        <div class="row">
+
+
+
+
+                                                            <div class="col-sm-4 like" onclick="likeButtons({{ publication.id }})" >
+                                                                <i class="fa fa-heart"></i> Like
+                                                            </div>
+
+                                                            <div class="col-sm-4 more-comments">
+                                                                <div class="comment-number">
+                                                                    <i class="icon-bubble"></i> Comments<span class="pull-right badge badge-dark">3</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4 more-share">
+                                                                <i class="icon-share"></i> Share
+                                                            </div>
+                                                        </div>
+                                                        <div class="row comments">
+                                                            <div class="col-sm-12">
+                                                                <ul>
+                                                                    <li class="clearfix">
+                                  <span class="pull-left">
+                                  <img src="{{ asset('images/profil_page/friend4.jpg') }}" alt="friend 1">
+                                  </span>
+                                                                        <div class="clearfix">
+                                                                            <div class="info">
+                                                                                <div class="name"><strong class="primary-font">John Smith</strong></div>
+                                                                                <div class="date">12 mins ago</div>
+                                                                            </div>
+
+                                                                            <p>
+
+                                                                                Wow! Looks great!
+
+                                                                            </p>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row share">
+                                                            <div class="share-facebook">
+                                                                <i class="fa fa-facebook"></i>
+                                                            </div>
+                                                            <div class="share-twitter">
+                                                                <i class="fa fa-twitter"></i>
+                                                            </div>
+                                                            <div class="share-google">
+                                                                <i class="fa fa-google-plus"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+
+                {% elseif publication.image == null %}
+
+                        <div class="page-content page-app page-profil " >
+                            <div class="profil-content">
+                                <div class="row">
+                                    <div class="row">
+
+                                        <div class="item item-comment">
+                                            <div>
+                                                <div class="user">
+                                                    <img alt="Profile Image" src="{{ asset('images/profil_page/friend2.jpg') }}">
+                                                    <h5 class="name"> >{{ publication.idProfil.user.username}}</h5>
+                                                    <div class="clearfix">
+
+
+                                                        <div class="panel">
+
+                                                            <div class="control-btn">
+                                                                <a class="hidden" id="dropdownMenu1" data-toggle="dropdown"><i class="icon-settings"></i></a><ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1"><li><a class="modifj"   >Modifier</a></li><li><a onclick="suppButtons({{ publication.id }})" >Supprimmer</a></li><li><a href="#">Something else here</a></li></ul><a href="#" class="panel-maximize hidden"><i class="icon-size-fullscreen"></i></a><a class="panel-toggle"><i class="fa fa-angle-down"></i></a>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <p class="place"><i class="icon-pointer"></i> NYC, New York</p>
+                                                        <p class="time"> {% if publication.dateCreation %}{{ publication.dateCreation|date('H:i') }} le {% if publication.dateCreation %}{{ publication.dateCreation|date('Y-m-d') }}{% endif %} {% endif %}  <i class="fa fa-clock-o"></i> </p>
+                                                    </div>
+                                                    <div class="comment">
+
+
+
+                                                        <textarea title=""  name="" class="c-primary m-b-0" id="newtext"  readonly="readonly">{{ publication.texte }}</textarea>
+                                                        <button class="btnmodif"  style="display: none" onclick="modifButtons({{ publication.id }})" >edit</button>
+
+                                                    </div>
+                                                </div></div>
+
+                                            <div class="more">
+                                                <div class="row">
+
+
+
+
+                                                    <div class="col-sm-4 like" onclick="likeButtons({{ publication.id }})" >
+                                                        <i class="fa fa-heart"></i> Like
+                                                    </div>
+
+                                                    <div class="col-sm-4 more-comments">
+                                                        <div class="comment-number">
+                                                            <i class="icon-bubble"></i> Comments<span class="pull-right badge badge-dark">3</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4 more-share">
+                                                        <i class="icon-share"></i> Share
+                                                    </div>
+                                                </div>
+                                                <div class="row comments">
+                                                    <div class="col-sm-12">
+                                                        <ul>
+                                                            <li class="clearfix">
+                                  <span class="pull-left">
+                                  <img src="{{ asset('images/profil_page/friend4.jpg') }}" alt="friend 1">
+                                  </span>
+                                                                <div class="clearfix">
+                                                                    <div class="info">
+                                                                        <div class="name"><strong class="primary-font">John Smith</strong></div>
+                                                                        <div class="date">12 mins ago</div>
+                                                                    </div>
+
+                                                                    <p>
+
+                                                                        Wow! Looks great!
+
+                                                                    </p>
+                                                                </div>
+                                                            </li>
+                                                            <li></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="row share">
+                                                    <div class="share-facebook">
+                                                        <i class="fa fa-facebook"></i>
+                                                    </div>
+                                                    <div class="share-twitter">
+                                                        <i class="fa fa-twitter"></i>
+                                                    </div>
+                                                    <div class="share-google">
+                                                        <i class="fa fa-google-plus"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endif %}
+                {% endfor %}
+
+            </section>
+            <!-- END TIMELINE CONTENT -->
+        </div>
+    </div>
+    <div class="footer">
+        <div class="copyright">
+            <p class="pull-left sm-pull-reset">
+                <span>Copyright <span class="copyright">©</span> 2015 </span>
+                <span>THEMES LAB</span>.
+                <span>All rights reserved. </span>
+            </p>
+            <p class="pull-right sm-pull-reset">
+                <span><a href="#" class="m-r-10">Support</a> | <a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
+            </p>
+        </div>
+    </div>
+</div>
+    </div>
+
+{% endblock content %}
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('js/pages/timeline1.js') }}"></script>
+    <script src="{{ asset('plugins/videojs/video.js') }}"></script>
+    <script src="{{ asset('js/pages/home.js') }}"></script>
+    <script src="{{ asset('js/layout.js') }}"></script>
+    <script src="{{ asset('plugins/magnific/jquery.magnific-popup.min.js') }}"></script>  <!-- Image Popup -->
+    <script src="{{ asset('plugins/isotope/isotope.pkgd.min.js') }}"></script>  <!-- Filter & sort magical Gallery -->
+    <script>
+        $(window).load(function(){
+            var $container = $('.portfolioContainer');
+            $container.isotope();
+            $('.portfolioFilter a').click(function(){
+                $('.portfolioFilter .current').removeClass('current');
+                $(this).addClass('current');
+                var selector = $(this).attr('data-filter');
+                $container.isotope({
+                    filter: selector
+                });
+                return false;
+            });
+        });
+    </script>
+
+
+{% endblock javascripts %}

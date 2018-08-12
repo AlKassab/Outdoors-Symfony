@@ -1,0 +1,28 @@
+camping_index:
+    path:     /index1
+    defaults: { _controller: "AppBundle:Camping:index" }
+    methods:  GET
+
+camping_show:
+    path:     /{idCamp}/show1
+    defaults: { _controller: "AppBundle:Camping:show" }
+    methods:  GET
+
+camping_new:
+    path:     /new1
+    defaults: { _controller: "AppBundle:Camping:new" }
+    methods:  [GET, POST]
+
+camping_edit:
+    path:     /updateCamp
+    defaults: { _controller: "AppBundle:Camping:Update" }
+
+
+camping_delete:
+    path:     /{idCamp}/delete1
+    defaults: { _controller: "AppBundle:Camping:delete" }
+    methods:  DELETE
+calendrier:
+    path:   /calendrier
+    defaults: { _controller: "AppBundle:Camping:Calendrier"}
+    methods:  GET

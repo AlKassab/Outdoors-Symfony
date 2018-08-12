@@ -1,0 +1,52 @@
+{% extends 'AppBundle:Layouts:layout.html.twig' %}
+
+{% block content %}
+    <h1>Camping</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idcamp</th>
+                <td>{{ camping.idCamp }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ camping.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ camping.description }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if camping.date %}{{ camping.date|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Lieu</th>
+                <td>{{ camping.lieu }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+            </tr>
+        </tbody>
+    </table>
+    <img src="data:image/png;base64,{{ camping.image }}">
+
+    <ul>
+        <li>
+            <a href="{{ path('camping_index') }}">
+            <input type="submit"class="btn btn-embossed btn-primary m-r-20" value="Back to the list">
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('camping_edit', { 'idCamp': camping.idCamp }) }}">
+                <input type="submit"class="btn btn-embossed btn-primary m-r-20" value="edit"></a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" class="btn btn-embossed btn-primary m-r-20"  value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
+

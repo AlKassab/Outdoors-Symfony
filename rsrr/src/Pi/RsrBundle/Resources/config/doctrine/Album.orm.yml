@@ -1,0 +1,40 @@
+Pi\RsrBundle\Entity\Album:
+    type: entity
+    table: album
+    indexes:
+        id_profil:
+            columns:
+                - id_profil
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        titre:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        dateCreation:
+            type: date
+            nullable: false
+            column: date_creation
+        idProfil:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_profil
+    lifecycleCallbacks: {  }

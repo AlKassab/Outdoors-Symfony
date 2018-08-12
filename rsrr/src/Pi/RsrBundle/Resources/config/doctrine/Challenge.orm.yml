@@ -1,0 +1,82 @@
+Pi\RsrBundle\Entity\Challenge:
+    type: entity
+    table: challenge
+    indexes:
+        IDX_D7098951F59ED8FC:
+            columns:
+                - id_compte_prod
+    id:
+        idChal:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_chal
+            generator:
+                strategy: IDENTITY
+    fields:
+        dateDebut:
+            type: date
+            nullable: false
+            column: date_debut
+        dateFin:
+            type: date
+            nullable: false
+            column: date_fin
+        nbrPart:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: nbr_part
+        nbrparticipantsChall:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: nbrparticipants_chall
+        nom:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        image:
+            type: blob
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        lieuDepart:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: lieu_depart
+        lieuArrivee:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: lieu_arrivee
+        scoreChallenge:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: score_challenge
+    manyToOne:
+        idCompteProd:
+            targetEntity: Utilisateurs
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_compte_prod:
+                    referencedColumnName: id_utilisateur
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

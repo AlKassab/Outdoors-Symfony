@@ -1,0 +1,313 @@
+{% extends "AppBundle:Layouts:layout.html.twig" %}
+
+{% block title %} Outdoors - Profile {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/global/css/style.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('assets/global/css/ui.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('assets/global/css/theme.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('assets/admin/layout2/css/layout.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('assets/global/plugins/bootstrap-loading/lada.min.css') }}" type="text/css" rel="stylesheet">
+
+    <script src="{{ asset('assets/global/plugins/modernizr/modernizr-2.6.2-respond-1.1.0.min.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="page-content page-app page-profil col-md-offset-2">
+        <div class="col-lg-8 col-md-9">
+            <div class="row profil-header" >
+                <div class="col-lg-12 col-md-12">
+                    <div class="row">
+                        <div class="col-lg-3 profil-img">
+                            <img src="{{ asset('uploads/users/'~app.user.image) }}" alt="profil">
+                        </div>
+                        <div class="col-lg-9  col-map">
+                            <div class="map" id="profil-map">
+                                <div id="map"></div>
+
+                                <script>
+                                    function initMap(address) {
+
+                                        var geocoder = new google.maps.Geocoder();
+
+                                        geocoder.geocode( { 'address': "{{ app.user.city }}"}, function(results, status) {
+
+                                            if (status == google.maps.GeocoderStatus.OK) {
+                                                var latitude = results[0].geometry.location.lat();
+                                                var longitude = results[0].geometry.location.lng();
+                                            }
+
+                                            console.log(latitude);
+                                            console.log(longitude);
+
+                                            var myLatLng = {lat: latitude, lng: longitude};
+
+                                            var map = new google.maps.Map(document.getElementById('map'), {
+                                                zoom: 6,
+                                                center: {lat: latitude-2.5, lng: longitude-1}
+                                            });
+
+                                            var marker = new google.maps.Marker({
+                                                position: myLatLng,
+                                                map: map,
+                                                title: 'Hello World!'
+                                            });
+
+                                        });
+
+
+                                    }
+
+
+
+
+                                </script>
+
+                                <script async defer
+                                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY2buDtbYIot8Llm_FkQXHW36f0Cme6TI&callback=initMap">
+                                </script>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row header-name">
+                        <div class="col-md-9">
+                            <div class="name">{{ app.user.name }} {{ app.user.surname }} <i class="fa fa-check-circle"></i></div>
+                            <div class="profil-info"><i class="icon-call-end"></i>{{ app.user.tel }}</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="profil-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="item m-b-30">
+                                    <div class="item-textarea">
+                                        <textarea  placeholder="What'up?..." class="form-control form-white autosize" rows="5"></textarea>
+                                    </div>
+                                    <div class="item-footer clearfix">
+                                        <div class="footer-actions pull-left">
+                                            <i class="icon-rounded-marker"></i>
+                                            <i class="icon-rounded-camera"></i>
+                                            <i class="icon-rounded-paperclip-oblique"></i>
+                                            <i class="icon-rounded-alarm-clock"></i>
+                                        </div>
+                                        <button type="button" class="pull-right btn btn-primary btn-square">Send</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+
+                                <div class="item hover-effect">
+                                    <div class="user">
+                                        <img src="{{ asset('assets/global/images/profil_page/pics2.jpg') }}" class="img-responsive hover-img" alt="">
+                                        <img src="{{ asset('assets/global/images/profil_page/friend8.jpg') }}" class="img-user" alt="picture 2">
+                                        <div class="info">
+                                            <div class="f-24">Adam Levin</div>
+                                            <div>
+                                                <div class="location"><i class="icon-pointer"></i> Salem, LA</div>
+                                                <div class="date"><i class="icon-clock"></i> 32min ago</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment">
+                                        Adversity has the effect of eliciting talents which in prosperous circumstances would have lain dormant.
+                                    </div>
+                                    <div class="more">
+                                        <div class="row">
+                                            <div class="col-sm-4 like liked">
+                                                <i class="fa fa-heart"></i> Like
+                                            </div>
+                                            <div class="col-sm-4 more-comments">
+                                                <div class="comment-number">
+                                                    <i class="icon-bubble"></i> Comments <span class="pull-right badge badge-dark">6</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 more-share">
+                                                <i class="icon-share"></i> Share
+                                            </div>
+                                        </div>
+                                        <div class="row comments">
+                                            <div class="col-sm-12">
+                                                <ul>
+                                                    <li class="clearfix">
+                                  <span class="pull-left">
+                                  <img src="{{ asset('assets/global/images/profil_page/friend1.jpg') }}" alt="friend 1">
+                                  </span>
+                                                        <div class="clearfix">
+                                                            <div class="info">
+                                                                <div class="name"><strong class="primary-font">John Smith</strong></div>
+                                                                <div class="date">12 mins ago</div>
+                                                            </div>
+                                                            <p>
+                                                                Wow! Looks great!
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="clearfix">
+                                  <span class="pull-left">
+                                  <img src="{{ asset('assets/global/images/profil_page/friend2.jpg') }}" alt="friend 2">
+                                  </span>
+                                                        <div class="clearfix">
+                                                            <div class="info">
+                                                                <div class="name"><strong class="primary-font">John Smith</strong></div>
+                                                                <div class="date">12 mins ago</div>
+                                                            </div>
+                                                            <p>
+                                                                Hey! What's up here? Give me a call soon.
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="row share">
+                                            <div class="share-facebook">
+                                                <i class="fa fa-facebook"></i>
+                                            </div>
+                                            <div class="share-twitter">
+                                                <i class="fa fa-twitter"></i>
+                                            </div>
+                                            <div class="share-google">
+                                                <i class="fa fa-google-plus"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+
+                                <div class="item hover-effect">
+                                    <div class="user">
+                                        <img src="{{ asset('assets/global/images/profil_page/pics3.jpg') }}" class="img-responsive hover-img" alt="">
+                                        <img src="{{ asset('assets/global/images/profil_page/friend4.jpg') }}" class="img-user" alt="picture 2">
+                                        <div class="info">
+                                            <div class="f-24">Sarah Bones</div>
+                                            <div>
+                                                <div class="location"><i class="icon-pointer"></i> New York, NY</div>
+                                                <div class="date"><i class="icon-clock"></i> 14 hours ago</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="comment">
+                                        Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning.
+                                    </div>
+                                    <div class="more">
+                                        <div class="row">
+                                            <div class="col-sm-4 like">
+                                                <i class="fa fa-heart"></i> Like
+                                            </div>
+                                            <div class="col-sm-4 more-comments">
+                                                <div class="comment-number">
+                                                    <i class="icon-bubble"></i> Comments <span class="pull-right badge badge-dark">3</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 more-share">
+                                                <i class="icon-share"></i> Share
+                                            </div>
+                                        </div>
+                                        <div class="row comments">
+                                            <div class="col-sm-12">
+                                                <ul>
+                                                    <li class="clearfix">
+                                  <span class="pull-left">
+                                  <img src="{{ asset('assets/global/images/profil_page/friend5.jpg') }}" alt="friend 1">
+                                  </span>
+                                                        <div class="clearfix">
+                                                            <div class="info">
+                                                                <div class="name"><strong class="primary-font">Anna Martin</strong></div>
+                                                                <div class="date">12 mins ago</div>
+                                                            </div>
+                                                            <p>
+                                                                Wow! Looks great!
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="clearfix">
+                                  <span class="pull-left">
+                                  <img src="{{ asset('assets/global/images/profil_page/friend6.jpg') }}" alt="friend 2">
+                                  </span>
+                                                        <div class="clearfix">
+                                                            <div class="info">
+                                                                <div class="name"><strong class="primary-font">John Smith</strong></div>
+                                                                <div class="date">12 mins ago</div>
+                                                            </div>
+                                                            <p>
+                                                                Hey! What's up here? Give me a call soon.
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="row share">
+                                            <div class="share-facebook">
+                                                <i class="fa fa-facebook"></i>
+                                            </div>
+                                            <div class="share-twitter">
+                                                <i class="fa fa-twitter"></i>
+                                            </div>
+                                            <div class="share-google">
+                                                <i class="fa fa-google-plus"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="row">
+
+                            <div class="col-md-12 col-sm-6 col-xs-12">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-3 hidden-sm hidden-xs profil-right">
+            <div class="profil-sidebar-element">
+                <h3><strong>Á propos de moi</strong></h3>
+                <p>{{ app.user.bio }}</p>
+            </div>
+            <div class="profil-sidebar-element m-t-20">
+                {% set user_stats = app.user|user_stats %}
+                <h3><strong>Mes Contacts</strong></h3>
+                <p class="m-t-0"><span class="c-primary"><strong>{{ user_stats.followers }}</strong></span> Abonnés</p>
+                <p class="m-t-0"><span class="c-primary"><strong>{{ user_stats.following }}</strong></span> Abonnements</p>
+            </div>
+            <div class="m-t-20">
+                <hr class="btn-success">
+            </div>
+            <div class="m-t-60" style="width:100%">
+                <canvas id="profil-chart" height="450"></canvas>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="copyright">
+                <p class="pull-left sm-pull-reset">
+                    <span>Copyright <span class="copyright">©</span> 2015 </span>
+                    <span>THEMES LAB</span>.
+                    <span>All rights reserved. </span>
+                </p>
+                <p class="pull-right sm-pull-reset">
+                    <span><a href="#" class="m-r-10">Support</a> | <a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

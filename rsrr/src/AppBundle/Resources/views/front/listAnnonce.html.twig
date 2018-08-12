@@ -1,0 +1,120 @@
+{% extends 'AppBundle:Layouts:layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href="{{ asset('plugins/videojs/video.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/magnific/magnific-popup.min.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('css/ui.css') }}" rel="stylesheet"> <!-- MANDATORY -->
+    <link href="{{ asset('plugins/datatables/dataTables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/hover-effects/hover-effects.min.css') }}" rel="stylesheet">
+
+{% endblock stylesheets %}
+{% block content %}
+{{ parent() }}
+
+    <div class="col-lg-8 box-form col-lg-offset-2">
+        <h3><i class="icon-layers"></i> la listes des <strong>Annonces</strong></h3>
+        <div class="breadcrumb-wrapper">
+            <ol class="breadcrumb">
+                <li> <a href="{{ path('list_annonce') }}"><img width="50" height="50" src="{{ asset('images/list1.png') }}" > </a></li>
+                <li> <a href="{{ path('list_annonce_table') }}"><img width="45" height="45" src="{{ asset('images/table.png') }}" > </a></li>
+
+
+            </ol>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-lg-8 portlets col-lg-offset-2">
+            <div class="panel panel-transparent">
+                <div class="panel-content">
+                    <div class="portfolioFilter">
+                        <a href="#" data-filter="*" class="current">All Categories</a>
+                        <a href="#" data-filter=".animal">Vêtements</a>
+                        <a href="#" data-filter=".transport">Matériels</a>
+                        <a href="#" data-filter=".nature">Autres</a>
+                    </div>
+                    <div class="portfolioContainer grid">
+                        {% set class1="animal effect-zoe magnific" %}
+                        {% set class2=" transport effect-zoe magnific" %}
+                        {% set class3="nature effect-zoe magnific" %}
+
+
+                        {% for an in annonces %}
+
+
+
+
+                            {% if an.categorie == "Vetement" %}
+                                <figure class="{{ class1 }}" data-mfp-src="{{ asset('images/products/'~an.imageName) }}">
+                                    <img src="{{ asset('images/products/'~an.imageName) }}" alt="9"/>
+                                    <figcaption>
+                                        <h2 href="{{ path('ajouter_annonce') }}"><span >{{ an.nom }}</span></h2>
+                                        <i class="fa fa-heart"></i>
+                                        <i class="fa fa-eye" href="{{ path('ajouter_annonce') }}"> </i>
+                                        <i >{{ an.prix }} <strong>$</strong></i>
+                                    </figcaption>
+                                </figure>
+
+                            {% elseif an.categorie == "materiels" %}
+                                <figure class="{{ class2 }}" data-mfp-src="{{ asset('images/products/'~an.imageName) }}">
+                                    <img src="{{ asset('images/products/'~an.imageName) }}" alt="9"/>
+                                    <figcaption>
+                                        <h2><span>{{ an.nom }}</span></h2>
+                                        <i class="fa fa-heart"></i>
+                                        <i class="fa fa-eye"></i>
+                                        <i >{{ an.prix }} <strong>$</strong></i>
+
+                                    </figcaption>
+                                </figure>
+
+                            {% elseif an.categorie == "autre" %}
+                                <figure class="{{ class3 }}" data-mfp-src="{{ asset('images/products/'~an.imageName) }}">
+                                    <img src="{{ asset('images/products/'~an.imageName) }}" alt="9"/>
+                                    <figcaption>
+                                        <h2><span>{{ an.nom }}</span></h2>
+                                        <i class="fa fa-heart"></i>
+                                        <i class="fa fa-eye"></i>
+                                        <i >{{ an.prix }} <strong>$</strong></i>
+
+                                    </figcaption>
+                                </figure>
+
+
+                            {% endif %}
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    {% endblock content %}
+    {% block javascripts %}
+        <script src="{{ asset('js/pages/timeline.js') }}"></script>
+        <script src="{{ asset('plugins/videojs/video.js') }}"></script>
+        <script>
+            $(window).load(function () {
+                var $container = $('.portfolioContainer');
+                $container.isotope();
+                $('.portfolioFilter a').click(function () {
+                    $('.portfolioFilter .current').removeClass('current');
+                    $(this).addClass('current');
+                    var selector = $(this).attr('data-filter');
+                    $container.isotope({
+                        filter: selector
+                    });
+                    return false;
+                });
+            });
+        </script>
+
+
+
+    {% endblock javascripts %}

@@ -1,0 +1,48 @@
+.user-item .avatar{
+    background: #eee;
+    border-radius: 550px;
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+    float: left;
+}
+
+.user-item .avatar img{
+    height: 100%;
+    text-align: center;
+}
+
+.user-item .user-item-content{
+    padding: 10px;
+    margin-left: 85px;
+}
+
+.hr{
+    width: 50%;
+}
+
+#search-btn{
+    margin-top: 10px;
+}
+
+#search-icon{
+    margin-top: -5px;
+}
+
+.mylogo{
+    border-radius: 50% !important;
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.topbar .header-right .header-menu #user-header img {
+    float: left;
+    margin-right: 6px;
+    margin-top: 8px !important;
+    width: 36px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50% !important;
+    width: 35px !important;
+    height: 35px !important;
+}

@@ -1,0 +1,35 @@
+login:
+    path: /login
+    defaults: { _controller: AppBundle:Utilisateur:login }
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /logout
+
+register:
+    path: /register
+    defaults: { _controller: AppBundle:Utilisateur:register }
+
+user_nick_test:
+    path: /nick-test
+    defaults: { _controller: AppBundle:Utilisateur:nickTest }
+    methods: [POST]
+
+user_edit:
+    path: /my-data
+    defaults: { _controller: AppBundle:Utilisateur:editUser }
+
+user_profile:
+    path: /user/{nickname}
+    defaults: { _controller: AppBundle:Utilisateur:profile, nickname:null }
+
+user_list:
+    path: /people
+    defaults: { _controller: AppBundle:Utilisateur:users }
+
+user_search:
+    path: /search
+    defaults: { _controller: AppBundle:Utilisateur:search }
+

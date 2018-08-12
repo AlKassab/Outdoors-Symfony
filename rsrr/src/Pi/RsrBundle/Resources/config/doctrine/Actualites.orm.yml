@@ -1,0 +1,27 @@
+Pi\RsrBundle\Entity\Actualites:
+    type: entity
+    table: actualites
+    id:
+        idActu:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_actu
+            generator:
+                strategy: IDENTITY
+    fields:
+        titre:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        contenu:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

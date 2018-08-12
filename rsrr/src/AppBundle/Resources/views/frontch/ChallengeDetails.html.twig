@@ -1,0 +1,22 @@
+{% extends 'AppBundle:Layouts:layout.html.twig' %}
+{%  block content %}
+    <div class="col-xs-4 profil-img">
+        <img  src="data:image/png;base64,{{ sssss.image }}"   alt="profil">
+
+    </div>
+
+
+    <div class="row header-name">
+        <div class="col-xs-9">
+            <div class="name"><h1>{{ sssss.nom }} </h1></div>
+
+            <div class="profil-info"><i class="icon-present"><h1>{{ sssss.dateDebut |date("m/d/Y") }}</h1></i></div>
+            <div class="profil-info"><i class="icon-present"><h1>{{ sssss.dateFin |date ("m/d/Y")}}</h1></i></div>
+        </div>
+        <div class="col-xs-3 moments">
+
+            <a href="{{ path('Details',{'idCall': sssss.idChal })}}" ><button type="button" class="pull-right btn btn-primary btn-square"> Participer</button></a>
+        </div>
+    </div>
+
+{% endblock %}

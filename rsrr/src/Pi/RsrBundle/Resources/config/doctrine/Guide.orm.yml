@@ -1,0 +1,33 @@
+Pi\RsrBundle\Entity\Guide:
+    type: entity
+    table: guides
+    id:
+        idUtilisateur:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            id: true
+            column: id_utilisateur
+            generator:
+                strategy: IDENTITY
+    fields:
+        cin:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        certification:
+            type: string
+            nullable: false
+            length: 200
+            options:
+                fixed: false
+        lieux:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

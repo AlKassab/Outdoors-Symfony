@@ -1,0 +1,102 @@
+{% extends 'AppBundle:Layouts:layout.html.twig' %}
+
+{% block content %}
+    <div class="page-content">
+        <div class="header">
+            <h2>Forms <strong>Validation</strong></h2>
+            <div class="breadcrumb-wrapper">
+                <ol class="breadcrumb">
+                    <li><a href="{{ path('camping_index') }}">show all</a>
+                    </li>
+
+                    <li class="active">you are here</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-header bg-dark">
+                        <h2 class="panel-title">Submit your <strong>Camping</strong></h2>
+                    </div>
+                    <div class="panel-content bg-dark">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <br>
+                                <div role="form" class="form-horizontal form-validation" novalidate="novalidate">
+           <form method="post">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Nom
+                                        </label>
+                                        <div class="col-sm-9 prepend-icon">
+                                            <input type="text" value="{{ camping.nom }}" name="nom">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Lieu
+                                        </label>
+                                        <div class="col-sm-9 prepend-icon">
+                                            <input type="text" value="{{ camping.lieu }}" name="lieu">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Description
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" value="{{ camping.description }}" name="description">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Date
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input type="date" class="date-picker form-control hasDatepicker" value="{{ camping.date |date }}" name="date">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Image
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input type="file" value="{{ camping.image  }}" name="image">
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-9 col-sm-offset-3">
+                                            <div class="pull-right">
+                                                <button type="reset"
+                                                        class="cancel btn btn-embossed btn-default m-b-10 m-r-0">Cancel
+                                                </button>
+                                                <a href="{{ path ('camping_show',{'idCamp':camping.idCamp}) }}">
+                                                <input type="submit"class="btn btn-embossed btn-primary m-r-20" value="valider">
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+           </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ asset('plugins/bootstrap-datepicker/css/bootstrap-datepicker.css') }}"></script>
+    <script src="{{ asset('plugins/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css') }}"></script>
+    <script src="{{ asset('plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css') }}"></script>
+    <script src="{{ asset('plugins/bootstrap-datepicker/css/bootstrap-datepicker3.standalone.css') }}"></script>
+    <script src="{{ asset('plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
+
+
+
+
+
+{% endblock %}

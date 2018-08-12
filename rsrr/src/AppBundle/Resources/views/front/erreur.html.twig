@@ -1,0 +1,27 @@
+{% extends 'AppBundle:Layouts:layout.html.twig' %}
+{% block pagestyle %}
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href="{{ asset('plugins/videojs/video.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/magnific/magnific-popup.min.css') }}" rel="stylesheet">
+
+    <script type="text/javascript" src="{{ asset('jTable/jquery-2.1.4.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('jTable/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript">$(document).ready(function() {
+            $('#example').DataTable();
+        } );
+    </script>
+
+{% endblock pagestyle %}
+{% block PageContent %}
+
+
+    <div class="page-content">
+       <strong><center><h2>Votre Solde est insufisant recharchger votre compte </h2></center></strong>
+       <center> <img src="{{ asset('images/sorry.jpg') }}" width="500 px" height="500 px"></center>
+
+    </div>
+
+{% endblock PageContent %}
+    {% block JavaScript %}
+
+    {% endblock JavaScript %}

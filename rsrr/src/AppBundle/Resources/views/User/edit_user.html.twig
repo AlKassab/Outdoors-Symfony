@@ -1,0 +1,15 @@
+{% extends "AppBundle:Layouts:layout.html.twig" %}
+
+{% block title %} Outdoors - Settings {% endblock %}
+
+{% block content %}
+
+
+    <div class="col-lg-6 box-form col-lg-offset-4">
+        <h2>My data</h2>
+        <hr>
+        {{ form_start(form, {'enctype':'multipart/form-data'}) }}
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

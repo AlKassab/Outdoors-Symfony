@@ -1,0 +1,84 @@
+Pi\RsrBundle\Entity\Annonces:
+    type: entity
+    table: annonces
+    id:
+        idAnnonce:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_annonce
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        type:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+        prix:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+        datePublication:
+            type: datetime
+            nullable: true
+            column: date_publication
+        derniereModification:
+            type: datetime
+            nullable: true
+            column: derniere_modification
+        categorie:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        image:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+        imageName:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+            column: image_name
+        statu:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        idUtilisateur:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+            column: id_utilisateur
+        updatedAt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: updated_at
+    lifecycleCallbacks: {  }

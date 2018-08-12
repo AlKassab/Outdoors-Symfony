@@ -1,0 +1,37 @@
+Pi\RsrBundle\Entity\Commentaire:
+    type: entity
+    table: commentaire
+    id:
+        idComm:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_comm
+            generator:
+                strategy: IDENTITY
+    fields:
+        sujet:
+            type: string
+            nullable: false
+            length: 200
+            options:
+                fixed: false
+        date:
+            type: date
+            nullable: false
+        idPub:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_pub
+        idUtilisateur:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: id_utilisateur
+    lifecycleCallbacks: {  }

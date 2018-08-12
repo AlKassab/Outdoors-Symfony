@@ -1,0 +1,41 @@
+Pi\RsrBundle\Entity\Followers:
+    type: entity
+    table: followers
+    indexes:
+        fk_following_users:
+            columns:
+                - user
+        fk_followed:
+            columns:
+                - followed
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        followed:
+            targetEntity: Utilisateurs
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                followed:
+                    referencedColumnName: id_utilisateur
+            orphanRemoval: false
+        user:
+            targetEntity: Utilisateurs
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user:
+                    referencedColumnName: id_utilisateur
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

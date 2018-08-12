@@ -1,0 +1,22 @@
+Pi\RsrBundle\Entity\Admin:
+    type: entity
+    table: admins
+    id:
+        idAdmin:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            id: true
+            column: id_admin
+            generator:
+                strategy: IDENTITY
+    fields:
+        mdp:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

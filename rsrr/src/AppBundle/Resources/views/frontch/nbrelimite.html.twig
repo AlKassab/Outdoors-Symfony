@@ -1,0 +1,79 @@
+{% extends 'AppBundle:Layouts:layout.html.twig' %}
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+    <div class="post-content">
+        <img name="{{ sssss.nom }}" src="data:image/png;base64,{{ sssss.image }}" style="width: 800px">
+        <div class="post-container">
+
+            <div class="post-detail">
+<div class="panel-footer">
+
+
+                    <ul class="post-action ">
+                        <li>{% if voted == 0 %}
+                                {{ form_start(form) }}
+                                {{ form_widget(form.nombreVote) }}
+                                <script>
+                                    $(document).ready(function () {
+                                        $('#rating_star_1').click(function () {
+                                            window.location.replace('{{ path('vote_prod',{'idprod': sssss.idChal  , 'nbrevote':'1'}) }}');
+                                        });
+                                        $('#rating_star_2').click(function () {
+                                            window.location.replace('{{ path('vote_prod',{'idprod':   sssss.idChal , 'nbrevote':'2'}) }}');
+                                        });
+                                        $('#rating_star_3').click(function () {
+                                            window.location.replace('{{ path('vote_prod',{'idprod':  sssss.idChal , 'nbrevote':'3'})}}');
+
+                                        });
+                                        $('#rating_star_4').click(function () {
+                                            window.location.replace('{{ path('vote_prod',{'idprod': sssss.idChal , 'nbrevote':'4'})}}');
+                                        });
+                                        $('#rating_star_5').click(function () {
+                                            window.location.replace('{{ path('vote_prod',{'idprod': sssss.idChal , 'nbrevote':'5'})}}');
+                                        });
+
+                                    });
+
+                                </script>
+                                {{ form_end(form) }}
+                                {% endif %}
+                          </li>
+
+                    </ul>
+
+
+
+            </div>
+
+
+                <div class="user-info">
+                    <h4><a  class="profile-link"> </a>  {{ sssss.nom }}</h4>
+
+                </div>
+                <div class="reaction">
+                    <a class="btn text-green"> {{ sssss.datedebut|date('m/d/Y')}}</a>
+                    <a class="btn text-red"> {{ sssss.datefin|date('m/d/Y')}}</a>
+                </div>
+
+
+
+
+
+            </div>
+
+
+    <div class="col-md-2 static">
+        <div class="suggestions" id="sticky-sidebar">
+            <h4 class="grey">Nombre max des participants: {{ sssss.nbrPart }}</h4>
+            <p class="progress-label">Score <span>{{ score }}</span></p>
+            <p class="progress-label">Rating <span>{{ sssss.scorechallenge }}</span></p>
+        </div>
+    </div>
+    </div>
+    <script src="{{ asset('') }}jquery.min.js"></script>
+    <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
+    <div class="col-xs-3 moments">
+
+        <a href="{{ path('Liste_CHF')}}" ><button type="button" class="pull-right btn btn-primary btn-square">Ne plus Participer</button></a>
+    </div>
+{% endblock %}

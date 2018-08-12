@@ -1,0 +1,31 @@
+Pi\RsrBundle\Entity\Map:
+    type: entity
+    table: map
+    id:
+        idlocation:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: idLocation
+            generator:
+                strategy: IDENTITY
+    fields:
+        lieu:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+        lat:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+        lng:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+    lifecycleCallbacks: {  }

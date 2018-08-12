@@ -1,0 +1,13 @@
+Pi\RsrBundle\Entity\Camper:
+    type: entity
+    table: campers
+    id:
+        nbr:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    lifecycleCallbacks: {  }

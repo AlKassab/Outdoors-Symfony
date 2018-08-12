@@ -1,0 +1,132 @@
+{% extends "AppBundle:Layouts:layout.html.twig" %}
+{% block content %}
+    <div class="page-content">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- BEGIN TIMELINE CONTENT -->
+                <div class="timeline-btn-day"> <i class="icon-custom-left"></i>
+                    <button type="button" class="btn btn-primary f-16"><strong>TimeLine</strong></button>
+                </div>
+                <section id="timeline">
+                    {% for t in campings %}
+                    <div class="timeline-block">
+                        <div class="timeline-icon bg-primary">
+                            <i class="icon-picture"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-heading clearfix">
+                                <h2 class="pull-left">Camping <strong>{{ t.nom }}</strong></h2>
+                                <div class="pull-right">
+                                    <div class="pull-left">
+                                        <div class="timeline-day-number">{{ t.date|date('d') }}</div>
+                                    </div>
+                                    <div class="pull-left">
+                                        <div class="timeline-day">{{ t.date|date('m') }}</div>
+                                        <div class="timeline-month c-gray">{{ t.date|date('y') }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p> {{ t.description }}</p>
+                            <a href="{{ path('camping_show', { 'idCamp': t.idCamp }) }}"><img src="data:image/png;base64,{{ t.image }}"></a>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+
+
+
+                </section>
+
+            </div>
+        </div>
+        <div class="footer">
+            <div class="copyright">
+                <p class="pull-left sm-pull-reset">
+                    <span>Copyright <span class="copyright">©</span> 2015 </span>
+                    <span>THEMES LAB</span>.
+                    <span>All rights reserved. </span>
+                </p>
+                <p class="pull-right sm-pull-reset">
+                    <span><a href="#" class="m-r-10">Support</a> | <a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="{{ asset('plugins/jquery/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ asset('plugins/jquery/jquery-migrate-1.2.1.min.js')}}" ></script>
+    <script src="{{asset('plugins/jquery-ui/jquery-ui-1.11.2.min.js')}}"></script>
+    <script src="{{ asset('plugins/gsap/main-gsap.min.js') }}"></script>
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('plugins/jquery-cookies/jquery.cookies.min.js') }}"></script> <!-- Jquery Cookies, for theme -->
+    <script src="{{ asset('plugins/jquery-block-ui/jquery.blockUI.min.js') }}"></script> <!-- simulate synchronous behavior when using AJAX -->
+    <script src="{{ asset('plugins/bootbox/bootbox.min.js') }}"></script> <!-- Modal with Validation -->
+    <script src="{{ asset('plugins/mcustom-scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script> <!-- Custom Scrollbar sidebar -->
+    <script src="{{ asset('plugins/bootstrap-dropdown/bootstrap-hover-dropdown.min.js') }}"></script> <!-- Show Dropdown on Mouseover -->
+    <script src="{{ asset('plugins/charts-sparkline/sparkline.min.js') }}"></script> <!-- Charts Sparkline -->
+    <script src="{{ asset('plugins/retina/retina.min.js') }}"></script> <!-- Retina Display -->
+    <script src="{{ asset('plugins/select2/select2.min.js') }}"></script> <!-- Select Inputs -->
+    <script src="{{ asset('plugins/icheck/icheck.min.js') }}"></script> <!-- Checkbox & Radio Inputs -->
+    <script src="{{ asset('plugins/backstretch/backstretch.min.js') }}"></script> <!-- Background Image -->
+    <script src="{{ asset('plugins/bootstrap-progressbar/bootstrap-progressbar.min.js') }}"></script> <!-- Animated Progress Bar -->
+    <script src="{{ asset('js/builder.js') }}"></script> <!-- Theme Builder -->
+    <script src="{{ asset('js/sidebar_hover.js') }}"></script> <!-- Sidebar on Hover -->
+    <script src="{{ asset('js/application.js') }}"></script> <!-- Main Application Script -->
+    <script src="{{ asset('js/plugins.js') }}"></script> <!-- Main Plugin Initialization Script -->
+    <script src="{{ asset('js/widgets/notes.js') }}"></script> <!-- Notes Widget -->
+    <script src="{{ asset('js/quickview.js') }}"></script> <!-- Chat Script -->
+    <script src="{{ asset('js/pages/search.js') }}"></script> <!-- Search Script -->
+    <!-- BEGIN PAGE SCRIPTS -->
+    <script src="{{ asset('plugins/slick/slick.min.js') }}"></script> <!-- Slider -->
+
+    <script src="{{ asset('plugins/google-maps/gmaps.min.js') }}"></script>  <!-- Google Maps Easy -->
+    <script src="{{ asset('plugins/videojs/video.js') }}"></script>  <!-- Google Maps Easy -->
+    <script src="{{ asset('js/pages/timeline.js') }}"></script>
+    <script src="{{ asset('js/layout.js') }}"></script>
+
+{% endblock %}
+{#{% block body %}#}
+    {#<h1>Campings list</h1>#}
+
+    {#<table>#}
+        {#<thead>#}
+            {#<tr>#}
+                {#<th>Idcamp</th>#}
+                {#<th>Nom</th>#}
+                {#<th>Description</th>#}
+                {#<th>Date</th>#}
+                {#<th>Lieu</th>#}
+                {#<th>Image</th>#}
+                {#<th>Actions</th>#}
+            {#</tr>#}
+        {#</thead>#}
+        {#<tbody>#}
+        {#{% for camping in campings %}#}
+            {#<tr>#}
+                {#<td><a href="{{ path('camping_show', { 'idCamp': camping.idCamp }) }}">{{ camping.idCamp }}</a></td>#}
+                {#<td>{{ camping.nom }}</td>#}
+                {#<td>{{ camping.description }}</td>#}
+                {#<td>{% if camping.date %}{{ camping.date|date('Y-m-d') }}{% endif %}</td>#}
+                {#<td>{{ camping.lieu }}</td>#}
+                {#<td>{{ camping.image }}</td>#}
+                {#<td>#}
+                    {#<ul>#}
+                        {#<li>#}
+                            {#<a href="{{ path('camping_show', { 'idCamp': camping.idCamp }) }}">show</a>#}
+                        {#</li>#}
+                        {#<li>#}
+                            {#<a href="{{ path('camping_edit', { 'idCamp': camping.idCamp }) }}">edit</a>#}
+                        {#</li>#}
+                    {#</ul>#}
+                {#</td>#}
+            {#</tr>#}
+        {#{% endfor %}#}
+        {#</tbody>#}
+    {#</table>#}
+
+    {#<ul>#}
+        {#<li>#}
+            {#<a href="{{ path('camping_new') }}">Create a new camping</a>#}
+        {#</li>#}
+    {#</ul>#}
+{#{% endblock %}#}

@@ -1,0 +1,92 @@
+{% extends 'AppBundle:Layouts:layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href="{{ asset('plugins/videojs/video.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/magnific/magnific-popup.min.css') }}" rel="stylesheet">
+
+{% endblock stylesheets %}
+{% block content %}
+
+<div class="col-lg-8 box-form col-lg-offset-2">
+        <h3><i class="icon-layers"></i> la listes des <strong>Annonces</strong></h3>
+    <div class="breadcrumb-wrapper">
+
+        <div class="m-b-12 f-left">
+            <div class="btn-group">
+                <a href="{{ path('ajouter_annonce') }}">
+                    <button type="button" class="btn btn-success">Déposer</button>
+                </a>
+            </div>
+            <ol class="breadcrumb">
+                <li> <a href="{{ path('list_annonce') }}"><img width="50" height="50" src="{{ asset('images/list1.png') }}" > </a></li>
+                <li> <a href="{{ path('list_annonce_table') }}"><img width="45" height="45" src="{{ asset('images/table.png') }}" > </a></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 portlets">
+            <div class="panel">
+
+                <div class="panel-content">
+                    <table class="table table-hover table-dynamic filter-head">
+                        <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Titre</th>
+                            <th>Type</th>
+                            <th>Catégorie</th>
+                            <th>Prix</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for an in annonces %}
+                            {% if an.statu == 1 %}
+                                <tr>
+                                    <td><div> {{ socialButtons() }}
+                                        </div>
+                                        <img width="100" height="100" src="{{ asset('images/products/'~an.imageName) }}" alt="9"/></td>
+                                    <td><a href="{{ path('detail_annonce',{'id':an.idAnnonce}) }}">{{ an.nom }}</a></td>
+                                    <td>{{ an.type }}</td>
+                                    <td>{{ an.categorie }}</td>
+                                    <td>{{ an.prix }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+    {% endblock content %}
+
+    {% block javascripts %}
+
+        {{ parent() }}
+
+        <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script> <!-- Tables Filtering, Sorting & Editing -->
+        <script src="{{ asset('js/pages/table_dynamic.js') }}"></script>
+        <script src="{{ asset('js/pages/timeline.js') }}"></script>
+        <script src="{{ asset('plugins/videojs/video.js') }}"></script>
+        <script>
+            $(window).load(function () {
+                var $container = $('.portfolioContainer');
+                $container.isotope();
+                $('.portfolioFilter a').click(function () {
+                    $('.portfolioFilter .current').removeClass('current');
+                    $(this).addClass('current');
+                    var selector = $(this).attr('data-filter');
+                    $container.isotope({
+                        filter: selector
+                    });
+                    return false;
+                });
+            });
+        </script>
+    {% endblock javascripts %}

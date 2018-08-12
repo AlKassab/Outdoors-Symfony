@@ -1,0 +1,113 @@
+{% extends 'AppBundle:Layouts:layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href="{{ asset('plugins/videojs/video.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/magnific/magnific-popup.min.css') }}" rel="stylesheet">
+
+{% endblock stylesheets %}
+{% block content %}
+
+    <div class="col-lg-8 box-form col-lg-offset-2">
+        <div class="col-md-6 portlets" style="width:100%; height: 100%">
+            <div class="panel">
+
+                <div class="panel-content">
+                    <ul class="nav nav-tabs nav-primary">
+                        <li class="active"><a href="#tab2_1" data-toggle="tab"><i class="icon-home"></i> Annonce</a></li>
+                        <li ><a href="#tab2_2" data-toggle="tab"><i class="fa fa-cc-mastercard"></i> Payment</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade active in" id="tab2_1">
+                            <div class="row column-seperation">
+                                <div class="col-md-12 line-separator">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <h3><strong>{{ annonce.nom }}</strong> </h3>
+                                            <h6><i class="icon-clock"></i>{{ annonce.datePublication |date }}</h6>
+                                        </div>
+                                        <div class="col-md-1 pull-right">
+
+
+
+                                            <h3><a href="{{ path('fav_annonce',{'id':annonce.idAnnonce}) }}"><i class=" fa fa-star-o fa-2x"></i></a></h3>
+                                        </div>
+                                    </div>
+
+                                    <img style="width: 100%; height: 450px" src=" {{ asset('images/products/'~annonce.imageName) }}"/>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <br>
+                                    <h3><strong>Description</strong></h3>
+                                    <p class="light">{{ annonce.Description }}.</p>
+                                </div>
+                                <div class="col-md-6 line-separator">
+                                    <br>
+
+                                    <h3><strong>Prix</strong></h3>
+                                    <p class="light">{{ annonce.prix }}$</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade " id="tab2_2">
+                            <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="cart-number" class="required">Cart Number</label>
+                                    <input type="text"  required class="form-control form-white" id="cart-number" name="cart-number" placeholder="Enter credit cart number" required data-parsley-group="block2">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label for="cart-csc" class="required">CSC Code</label>
+                                            <input type="password" name="password" id="password" class="form-control form-success" placeholder="Between 4 and 16 characters" minlength="4" maxlength="16" required="required" aria-required="true" aria-invalid="false" aria-describedby="password-error" >                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <a href="{{ path('payment',{'id':annonce.idAnnonce}) }}">
+                                            <button type="button" class="btn btn-success">payer</button>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+    </div>
+{% endblock content %}
+        {% block javascripts %}
+            {{ parent() }}
+            <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script> <!-- Tables Filtering, Sorting & Editing -->
+            <script src="{{ asset('js/pages/table_dynamic.js') }}"></script>
+            <script src="{{ asset('js/pages/timeline.js') }}"></script>
+            <script src="{{ asset('plugins/videojs/video.js') }}"></script>
+            <script>
+                $(window).load(function () {
+                    var $container = $('.portfolioContainer');
+                    $container.isotope();
+                    $('.portfolioFilter a').click(function () {
+                        $('.portfolioFilter .current').removeClass('current');
+                        $(this).addClass('current');
+                        var selector = $(this).attr('data-filter');
+                        $container.isotope({
+                            filter: selector
+                        });
+                        return false;
+                    });
+                });
+            </script>
+
+        {% endblock javascripts %}

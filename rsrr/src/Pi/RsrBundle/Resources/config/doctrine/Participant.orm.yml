@@ -1,0 +1,42 @@
+Pi\RsrBundle\Entity\Participant:
+    type: entity
+    table: participant
+    indexes:
+        IDX_D79F6B11B3BB8028:
+            columns:
+                - id_user_part
+        IDX_D79F6B117DC6CA46:
+            columns:
+                - id_challenge_part
+    id:
+        idPart:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_Part
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idChallengePart:
+            targetEntity: Challenge
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_challenge_part:
+                    referencedColumnName: id_chal
+            orphanRemoval: false
+        idUserPart:
+            targetEntity: Utilisateurs
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_user_part:
+                    referencedColumnName: id_utilisateur
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

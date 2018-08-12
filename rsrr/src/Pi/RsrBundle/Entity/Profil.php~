@@ -1,0 +1,286 @@
+<?php
+
+namespace Pi\RsrBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Profil
+ *
+ * @ORM\Table(name="profil", indexes={@ORM\Index(name="id_utilisateur", columns={"id_utilisateur"})})
+ * @ORM\Entity
+ */
+class Profil
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_profil", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idProfil;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="localisation", type="string", length=30, nullable=false)
+     */
+    private $localisation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo_profil", type="blob", nullable=true)
+     */
+    private $photoProfil;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cover_photo", type="blob", nullable=true)
+     */
+    private $coverPhoto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="detail", type="string", length=200, nullable=true)
+     */
+    private $detail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sexe", type="string", length=200, nullable=true)
+     */
+    private $sexe;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tel", type="integer", nullable=true)
+     */
+    private $tel;
+
+    /**
+     * @var \Utilisateurs
+     *
+     * @ORM\ManyToOne(targetEntity="Utilisateurs")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_utilisateur", referencedColumnName="id_utilisateur")
+     * })
+     */
+    private $idUtilisateur;
+
+
+
+    /**
+     * Get idProfil
+     *
+     * @return integer
+     */
+    public function getIdProfil()
+    {
+        return $this->idProfil;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Profil
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set localisation
+     *
+     * @param string $localisation
+     *
+     * @return Profil
+     */
+    public function setLocalisation($localisation)
+    {
+        $this->localisation = $localisation;
+
+        return $this;
+    }
+
+    /**
+     * Get localisation
+     *
+     * @return string
+     */
+    public function getLocalisation()
+    {
+        return $this->localisation;
+    }
+
+    /**
+     * Set photoProfil
+     *
+     * @param string $photoProfil
+     *
+     * @return Profil
+     */
+    public function setPhotoProfil($photoProfil)
+    {
+        $this->photoProfil = $photoProfil;
+
+        return $this;
+    }
+
+    /**
+     * Get photoProfil
+     *
+     * @return string
+     */
+    public function getPhotoProfil()
+    {
+        return $this->photoProfil;
+    }
+
+    /**
+     * Set coverPhoto
+     *
+     * @param string $coverPhoto
+     *
+     * @return Profil
+     */
+    public function setCoverPhoto($coverPhoto)
+    {
+        $this->coverPhoto = $coverPhoto;
+
+        return $this;
+    }
+
+    /**
+     * Get coverPhoto
+     *
+     * @return string
+     */
+    public function getCoverPhoto()
+    {
+        return $this->coverPhoto;
+    }
+
+    /**
+     * Set detail
+     *
+     * @param string $detail
+     *
+     * @return Profil
+     */
+    public function setDetail($detail)
+    {
+        $this->detail = $detail;
+
+        return $this;
+    }
+
+    /**
+     * Get detail
+     *
+     * @return string
+     */
+    public function getDetail()
+    {
+        return $this->detail;
+    }
+
+    /**
+     * Set sexe
+     *
+     * @param string $sexe
+     *
+     * @return Profil
+     */
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    /**
+     * Get sexe
+     *
+     * @return string
+     */
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+
+    /**
+     * Set tel
+     *
+     * @param integer $tel
+     *
+     * @return Profil
+     */
+    public function setTel($tel)
+    {
+        $this->tel = $tel;
+
+        return $this;
+    }
+
+    /**
+     * Get tel
+     *
+     * @return integer
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
+
+    /**
+     * Set idUtilisateur
+     *
+     * @param integer $idUtilisateur
+     *
+     * @return Profil
+     */
+    public function setIdUtilisateur($idUtilisateur)
+    {
+        $this->idUtilisateur = $idUtilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get idUtilisateur
+     *
+     * @return integer
+     */
+    public function getIdUtilisateur()
+    {
+        return $this->idUtilisateur;
+    }
+}

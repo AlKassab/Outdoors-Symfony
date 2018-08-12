@@ -1,0 +1,55 @@
+app_user:
+    resource: "@AppBundle/Resources/config/routing/utilisateur.yml"
+    prefix: /
+
+app_admin:
+    resource: "@AppBundle/Resources/config/routing/admin.yml"
+    prefix: /
+
+app_home:
+    resource: "@AppBundle/Resources/config/routing/home.yml"
+    prefix: /
+
+app_following:
+    resource: "@AppBundle/Resources/config/routing/following.yml"
+    prefix: /
+
+app_actualite:
+    resource: "@AppBundle/Resources/config/routing/actualite.yml"
+    prefix: /
+
+app_private_message:
+    resource: "@AppBundle/Resources/config/routing/private_message.yml"
+    prefix: /
+
+app_annonce:
+    resource: "@AppBundle/Resources/config/routing/annonce.yml"
+    prefix: /
+
+app_rando:
+    resource: "@AppBundle/Resources/config/routing/rando.yml"
+    prefix: /
+
+app_camp:
+    resource: "@AppBundle/Resources/config/routing/camping.yml"
+    prefix: /
+
+app_pub:
+    resource: "@AppBundle/Resources/config/routing/publication.yml"
+    prefix: /
+
+app_prof:
+    resource: "@AppBundle/Resources/config/routing/profil.yml"
+    prefix: /
+
+app_like:
+    resource: "@AppBundle/Resources/config/routing/like.yml"
+    prefix: /
+
+app_ch:
+    resource: "@AppBundle/Resources/config/routing/chal.yml"
+    prefix: /
+
+app_homepage:
+    path: /
+    defaults: { _controller: AppBundle:Utilisateur:login }

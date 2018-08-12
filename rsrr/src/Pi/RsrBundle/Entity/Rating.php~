@@ -1,0 +1,66 @@
+<?php
+
+namespace Pi\RsrBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Rating
+ *
+ * @ORM\Table(name="rating")
+ * @ORM\Entity
+ */
+class Rating
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbr", type="integer", nullable=false)
+     */
+    private $nbr;
+
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nbr
+     *
+     * @param integer $nbr
+     *
+     * @return Rating
+     */
+    public function setNbr($nbr)
+    {
+        $this->nbr = $nbr;
+
+        return $this;
+    }
+
+    /**
+     * Get nbr
+     *
+     * @return integer
+     */
+    public function getNbr()
+    {
+        return $this->nbr;
+    }
+}

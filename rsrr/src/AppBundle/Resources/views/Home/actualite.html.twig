@@ -1,0 +1,73 @@
+{% extends "AppBundle:Layouts:layout.html.twig" %}
+
+{% block title %} Outdoors - Actualites {% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+
+        <br><br><br>
+        <div class="row">
+
+            <section class="col-lg-4 box-form col-lg-offset-2" >
+            {% for book in actualites %}
+            <fieldset style="width: 500px">
+                <legend><h3>{{ book.titre }}</h3></legend>
+                <table border="0">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>{{ book.contenu }}</td>
+                    </tr>
+                    {% if app.user.role == "ROLE_ADMIN" %}
+                    <tr>
+                        <td><a href="{{ path('sup',{'r':book.idActu  }) }}"><button>Supprimer</button></a> </td>
+                    </tr>
+                    {% endif %}
+                </table>
+            </fieldset>
+        {% endfor %}
+            </section>
+
+
+    {% if app.user.role == "ROLE_ADMIN" %}
+        <section class="col-lg-4 box-form col-lg-offset-2">
+                <br>
+                {{form_start(form)}}
+                <table>
+                    <tr>
+                        <td>Titre:</td>
+                        <td>{{ form_widget(form.titre) }}</td>
+                    </tr>
+                    <tr>
+                        <td>Contenu:</td>
+                        <td>{{ form_widget(form.contenu) }}</td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td><input value="Ajouter" type="submit" class="btn-success"></td>
+                    </tr>
+
+                </table>
+
+                {{form_end(form)}}
+            </section>
+    {% endif %}
+        </div>
+
+
+
+{% endblock %}

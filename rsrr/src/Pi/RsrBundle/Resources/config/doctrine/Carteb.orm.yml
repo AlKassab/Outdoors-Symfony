@@ -1,0 +1,32 @@
+Pi\RsrBundle\Entity\Carteb:
+    type: entity
+    table: carteb
+    id:
+        idCarte:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_carte
+            generator:
+                strategy: IDENTITY
+    fields:
+        num:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        code:
+            type: string
+            nullable: true
+            length: 4
+            options:
+                fixed: false
+        solde:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+    lifecycleCallbacks: {  }

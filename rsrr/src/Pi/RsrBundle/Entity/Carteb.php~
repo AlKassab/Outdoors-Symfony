@@ -1,0 +1,119 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: ASUS I7
+ * Date: 10/04/2017
+ * Time: 01:31
+ */
+
+namespace Pi\RsrBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * carteb
+ *
+ * @ORM\Table(name="carteb")
+ * @ORM\Entity
+ *
+ *
+
+ */
+class CarteB
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_carte", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcarte;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="num", type="string", length=20, nullable=true)
+     */
+    private $num;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="code", type="string", length=4, nullable=true)
+     */
+    private $code;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="solde", type="float", nullable=true)
+     */
+    private $solde;
+
+    /**
+     * @return int
+     */
+    public function getIdcarte()
+    {
+        return $this->idcarte;
+    }
+
+    /**
+     * @param int $idcarte
+     */
+    public function setIdcarte($idcarte)
+    {
+        $this->idcarte = $idcarte;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNum()
+    {
+        return $this->num;
+    }
+
+    /**
+     * @param string $num
+     */
+    public function setNum($num)
+    {
+        $this->num = $num;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
+    /**
+     * @return float
+     */
+    public function getSolde()
+    {
+        return $this->solde;
+    }
+
+    /**
+     * @param float $solde
+     */
+    public function setSolde($solde)
+    {
+        $this->solde = $solde;
+    }
+
+
+
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Themes Lab - Creative Laborator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="description" />
+    <meta content="themes-lab" name="author" />
+    <link rel="shortcut icon" href="{{ asset('IndexF/images/favicon.png') }}">
+    <link href="{{ asset('IndexF/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('IndexF/css/ui.css') }}" rel="stylesheet">
+    <link href="{{ asset('IndexF/plugins/icheck/skins/all.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('IndexF/plugins/bootstrap-loading/lada.min.css') }}" rel="stylesheet">
+</head>
+<body class="sidebar-condensed account separate-inputs boxed" data-page="signup">
+<!-- BEGIN LOGIN BOX -->
+<div class="container" id="login-block">
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-md-offset-3">
+            <div class="account-wall">
+                <i class="user-img icons-faces-users-03"></i>
+              {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
+    </div>
+    <p class="account-copyright">
+        <span>Copyright © 2017 </span><span>OUTDOORS</span>.<span>All rights reserved.</span>
+    </p>
+    <div id="account-builder">
+        <form class="form-horizontal" role="form">
+            <div class="row">
+                <div class="col-md-12">
+                    <i class="fa fa-spin fa-gear"></i>
+                    <h3><strong>Customize</strong> Login Page</h3>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-xs-8 control-label">Social Login</label>
+                        <div class="col-xs-4">
+                            <label class="switch m-r-20">
+                                <input id="social-cb" type="checkbox" class="switch-input" checked>
+                                <span class="switch-label" data-on="On" data-off="Off"></span>
+                                <span class="switch-handle"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-8 control-label">Boxed Form</label>
+                        <div class="col-xs-4">
+                            <label class="switch m-r-20">
+                                <input id="boxed-cb" type="checkbox" class="switch-input" checked>
+                                <span class="switch-label" data-on="On" data-off="Off"></span>
+                                <span class="switch-handle"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-xs-8 control-label">Background Image</label>
+                        <div class="col-xs-4">
+                            <label class="switch m-r-20">
+                                <input id="image-cb" type="checkbox" class="switch-input" checked>
+                                <span class="switch-label" data-on="On" data-off="Off"></span>
+                                <span class="switch-handle"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-xs-8 control-label">Background Slides</label>
+                        <div class="col-xs-4">
+                            <label class="switch m-r-20">
+                                <input id="slide-cb" type="checkbox" class="switch-input">
+                                <span class="switch-label" data-on="On" data-off="Off"></span>
+                                <span class="switch-handle"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-xs-8 control-label">Terms Checkbox</label>
+                        <div class="col-xs-4">
+                            <label class="switch m-r-20">
+                                <input id="terms-cb" type="checkbox" class="switch-input" checked>
+                                <span class="switch-label" data-on="On" data-off="Off"></span>
+                                <span class="switch-handle"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-xs-8 control-label">User Image</label>
+                        <div class="col-xs-4">
+                            <label class="switch m-r-20">
+                                <input id="user-cb" type="checkbox" class="switch-input">
+                                <span class="switch-label" data-on="On" data-off="Off"></span>
+                                <span class="switch-handle"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- END LOCKSCREEN BOX -->
+<script src="{{ asset('IndexF/plugins/jquery/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ asset('IndexF/plugins/jquery/jquery-migrate-1.2.1.min.js') }}"></script>
+<script src="{{ asset('IndexF/plugins/gsap/main-gsap.min.js') }}"></script>
+<script src="{{ asset('IndexF/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('IndexF/plugins/icheck/icheck.min.js') }}"></script>
+<script src="{{ asset('IndexF/plugins/backstretch/backstretch.min.js') }}"></script>
+<script src="{{ asset('IndexF/plugins/bootstrap-loading/lada.min.js') }}"></script>
+<script src="{{ asset('IndexF/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('IndexF/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+<script src="{{ asset('IndexF/js/plugins.js') }}"></script>
+<script src="{{ asset('IndexF/js/pages/login-v1.js') }}"></script>
+<script src="{{ asset('IndexF/layout2/js/layout.js') }}"></script>
+</body>
+</html>

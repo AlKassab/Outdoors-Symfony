@@ -1,0 +1,44 @@
+list_annonce:
+    path: /listAnnonce
+    defaults: { _controller: AppBundle:Annonce:list }
+ajouter_annonce:
+    path: /ajouterAnnonce
+    defaults: { _controller: AppBundle:Annonce:add2 }
+mes_annonce:
+    path: /mesAnnonce
+    defaults: { _controller: AppBundle:Annonce:mesAnnonce }
+delete:
+    path: /delete/{id}
+    defaults: { _controller: AppBundle:Annonce:Delete }
+edit:
+    path: /edit/{id}
+    defaults: { _controller: AppBundle:Annonce:editAnnonce }
+list_annonce_table:
+    path: /listAnnonceT
+    defaults: { _controller: AppBundle:Annonce:listT }
+detail_annonce:
+    path: /detailA/{id}
+    defaults: { _controller: AppBundle:Annonce:getById }
+fav_annonce:
+    path: /favA
+    defaults: { _controller: AppBundle:Annonce:fav }
+fav_show:
+    path: /favshow
+    defaults: { _controller: AppBundle:Annonce:favAnnonceUser }
+payment:
+    path: /payement
+    defaults: { _controller: AppBundle:Annonce:payer }
+admin:
+    path: /adming
+    defaults: { _controller: AppBundle:Annonce:listAdmin }
+deleteA:
+    path: /deleteA/{id}
+    defaults: { _controller: AppBundle:Annonce:DeleteAdmin }
+autoriserA:
+    path: /auriserA/{id}
+    defaults: { _controller: AppBundle:Annonce:autoriserAdmin }
+
+
+
+
+

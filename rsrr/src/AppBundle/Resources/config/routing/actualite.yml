@@ -1,0 +1,7 @@
+actualite:
+    path: /actualite
+    defaults: { _controller: AppBundle:Actualite:ajout }
+
+sup:
+    path:     /{r}/Supprimer
+    defaults: { _controller: AppBundle:Actualite:suppr }

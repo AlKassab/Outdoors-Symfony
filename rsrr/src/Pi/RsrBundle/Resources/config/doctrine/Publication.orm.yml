@@ -1,0 +1,69 @@
+Pi\RsrBundle\Entity\Publication:
+    type: entity
+    table: publication
+    indexes:
+        id_album:
+            columns:
+                - id_album
+        id_profil:
+            columns:
+                - id_profil
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        image:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        texte:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: Texte
+        video:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        dateCreation:
+            type: datetime
+            nullable: false
+            column: date_creation
+        dateModification:
+            type: datetime
+            nullable: true
+            column: date_modification
+    manyToOne:
+        idProfil:
+            targetEntity: Profil
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_profil:
+                    referencedColumnName: id_profil
+            orphanRemoval: false
+        idAlbum:
+            targetEntity: Album
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_album:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

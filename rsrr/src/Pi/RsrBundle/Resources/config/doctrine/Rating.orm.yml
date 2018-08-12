@@ -1,0 +1,49 @@
+Pi\RsrBundle\Entity\Rating:
+    type: entity
+    table: rating
+    indexes:
+        IDX_D88926228D93D649:
+            columns:
+                - user
+        IDX_D8892622D7098951:
+            columns:
+                - challenge
+    id:
+        idRate:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_rate
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombreVote:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: nombre_vote
+    manyToOne:
+        user:
+            targetEntity: Utilisateurs
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user:
+                    referencedColumnName: id_utilisateur
+            orphanRemoval: false
+        challenge:
+            targetEntity: Challenge
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                challenge:
+                    referencedColumnName: id_chal
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

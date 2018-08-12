@@ -1,0 +1,89 @@
+{% extends 'AppBundle:Layouts:layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href="{{ asset('plugins/videojs/video.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/magnific/magnific-popup.min.css') }}" rel="stylesheet">
+
+{% endblock stylesheets %}
+{% block content %}
+
+
+    <div class="col-lg-8 box-form col-lg-offset-2">
+        <br>
+    {{  form_start(form)}}
+
+
+
+
+
+        <div class="row">
+
+
+            <div class="col-md-12">
+
+                <div class="panel">
+                    <div class="panel-content">
+                        <h1 class=""><h1 class="" style="color: rgb(91, 91, 91);"><span style="font-weight: 600;">Publier Votre Annonce</span>
+                            </h1></h1>
+                        <p class="" style="display: block;"><span
+                                    style="color: rgb(98, 99, 100); font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; text-align: right;">Une question ? Contactez notre service client par mail .</span><br>
+                        </p></div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <div class="form-group"><label class="col-sm-3 control-label">Titre</label>
+
+                        {{ form_widget(form.nom, {'id':'nom','attr': {'required': 'required','class': 'form-control form-white'}}) }}
+                    </div>
+                <div class="form-group">
+                    <label class="">Type</label>
+                <br>
+
+                                        {{ form_widget(form.type, {'id':'type','attr': {'class': 'form-control form-white'}}) }}
+                </div>
+                    <div class="form-group"><label class="col-sm-3 control-label">Description</label>
+                        {{ form_widget(form.description, {'id':'description','attr': {'required': 'required','class': 'form-control form-white'}}) }}
+
+                    </div>
+                    <div class="form-group"><label class="col-sm-3 control-label">Prix</label>
+                        {{ form_widget(form.prix, {'id':'prix','attr': {'required': 'required','class': 'form-control form-white'}}) }}
+
+                    </div>
+                    <div class="form-group">
+                        <label class="">Catégorie</label><br>
+                        {{ form_widget(form.categorie, {'id':'categorie','attr': {'required': 'required','class': 'form-control form-white'}}) }}
+
+                    </div>
+                    <div >
+
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3 m-t-5"></div>
+                        <div class="col-sm-9">
+                            {{ form_widget(form.submit, {'id':'categorie','attr': {'required': 'required','class': 'btn btn-default', 'placeholder':'Déposer'}}) }}
+
+
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+
+
+    </div>    {{ form_end (form)}}
+    </div>
+
+
+{% endblock content %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/pages/timeline.js') }}"></script>
+    <script src="{{ asset('plugins/videojs/video.js') }}"></script>
+
+{% endblock javascripts %}

@@ -1,0 +1,31 @@
+Pi\RsrBundle\Entity\Payement:
+    type: entity
+    table: payement
+    id:
+        idPayement:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_payement
+            generator:
+                strategy: IDENTITY
+    fields:
+        date:
+            type: date
+            nullable: false
+        idRando:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_rando
+        idUtilisateur:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: id_utilisateur
+    lifecycleCallbacks: {  }

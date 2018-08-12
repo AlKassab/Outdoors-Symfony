@@ -1,0 +1,72 @@
+{% extends "AppBundle:Layouts:layout.html.twig" %}
+
+{% block title %} Outdoors - Sign-up {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/custom/nick-test.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+
+    <body class="sidebar-condensed account separate-inputs boxed" data-page="signup">
+    <!-- BEGIN LOGIN BOX -->
+    <div class="container" id="login-block">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-md-offset-3">
+                <div class="account-wall">
+                    <i class="user-img icons-faces-users-03"></i>
+
+                    {{ form_start(form, {'action':'','method':'POST'} ) }}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="append-icon">
+
+                            {{ form_widget(form.name) }}
+                            <i class="icon-user"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="append-icon">
+                            {{ form_widget(form.surname) }}
+                            <i class="icon-user"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="append-icon">
+                    {{ form_widget(form.email) }}
+                    <i class="icon-envelope"></i>
+                </div>
+
+                    <div class="append-icon">
+                        {{ form_widget(form.username) }}
+                        <i class="icon-user"></i>
+                    </div>
+
+                    <div class="append-icon">
+                    {{ form_widget(form.password) }}
+                    <i class="icon-lock"></i>
+                </div>
+
+                    <br>
+
+                    {{ form_rest(form) }}
+                {{ form_errors(form) }}
+
+            </form>
+
+
+                <div class="clearfix">
+                        <p class="pull-right m-t-20"><a href="{{ path('login') }}">Already have an account? Sign In</a></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </body>
+
+{% endblock %}

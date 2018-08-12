@@ -1,0 +1,13 @@
+Pi\RsrBundle\Entity\Participation:
+    type: entity
+    table: participation
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    lifecycleCallbacks: {  }

@@ -1,0 +1,7 @@
+loginAdmin:
+    path: /admin/login
+    defaults: { _controller: AppBundle:Admin:loginAdmin }
+
+registerAdmin:
+    path: /admin/register
+    defaults: { _controller: AppBundle:Admin:registerAdmin }

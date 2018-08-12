@@ -1,0 +1,41 @@
+Pi\RsrBundle\Entity\Like:
+    type: entity
+    table: like
+    indexes:
+        IDX_AC6340B3A6816575:
+            columns:
+                - id_User
+        IDX_AC6340B3C4E0D4DF:
+            columns:
+                - id_pub
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idUser:
+            targetEntity: FosUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_User:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idPub:
+            targetEntity: Publication
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_pub:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

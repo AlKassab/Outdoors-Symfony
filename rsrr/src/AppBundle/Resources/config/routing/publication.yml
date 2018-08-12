@@ -1,0 +1,34 @@
+publication_index:
+    path:     /o
+    defaults: { _controller: "AppBundle:Publication:index" }
+    methods:  GET
+
+
+publication_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Publication:show" }
+    methods:  GET
+
+publication_new:
+    path:     /homee
+    defaults: { _controller: "AppBundle:Publication:new" }
+    methods:  [GET, POST]
+
+publication_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Publication:edit" }
+    methods:  [GET, POST]
+
+publication_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Publication:delete" }
+    methods:  DELETE
+
+publication_edit1:
+    path:     /{id}/{n}/edit
+    defaults: { _controller: "AppBundle:Publication:edit1" }
+    methods:  [GET, POST]
+
+publication_delete1:
+    path:     /{id}/delete1
+    defaults: { _controller: "AppBundle:Publication:delete1" }

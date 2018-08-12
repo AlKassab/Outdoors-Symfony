@@ -1,0 +1,36 @@
+Pi\RsrBundle\Entity\Favannonce:
+    type: entity
+    table: favannonce
+    indexes:
+        IDX_756D5D2AB3BB8028:
+            columns:
+                - id_user_part
+    id:
+        idFav:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_fav
+            generator:
+                strategy: IDENTITY
+    fields:
+        idFavuser:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_favuser
+    manyToOne:
+        idUserPart:
+            targetEntity: Utilisateurs
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_user_part:
+                    referencedColumnName: id_utilisateur
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

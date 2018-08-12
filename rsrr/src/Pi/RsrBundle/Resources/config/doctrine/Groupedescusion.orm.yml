@@ -1,0 +1,21 @@
+Pi\RsrBundle\Entity\Groupedescusion:
+    type: entity
+    table: groupedescusion
+    id:
+        idG:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_g
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,67 @@
+Pi\RsrBundle\Entity\Profil:
+    type: entity
+    table: profil
+    uniqueConstraints:
+        UNIQ_E6D6B2976B3CA4B:
+            columns:
+                - id_user
+    id:
+        idProfil:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_profil
+            generator:
+                strategy: IDENTITY
+    fields:
+        localisation:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        photoProfil:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: photo_profil
+        coverPhoto:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: cover_photo
+        detail:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+        sexe:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+        tel:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    manyToOne:
+        user:
+            targetEntity: Utilisateurs
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_user:
+                    referencedColumnName: id_utilisateur
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

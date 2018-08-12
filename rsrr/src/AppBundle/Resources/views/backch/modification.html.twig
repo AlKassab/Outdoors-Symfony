@@ -1,0 +1,75 @@
+{% extends 'AppBundle:Layouts:layout.html.twig' %}
+{% block content %}
+    <form method="POST">
+    <div class="tab-content">
+        <div class="tab-pane fade active in" id="hoshi">
+            <div class="row">
+                <div class="col-md-4">
+                                <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="text" name="nom" id="nom" value="{{ challenge.nom }}">
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="nom">
+                                <span class="input__label-content input__label-content--hoshi">Name</span>
+                                </label>
+                                </span>
+                </div>
+                <div class="col-md-4">
+                                <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="date" name="datedebut" id="datedebut"  value="{{ challenge.dateDebut| date }}">
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-2" for="datedebut">
+                                <span class="input__label-content input__label-content--hoshi">Date de debut</span>
+                                </label>
+                                </span>
+                </div>
+                <div class="col-md-4">
+                                <span class="input input--hoshi">
+                                <input  class="input__field input__field--hoshi" type="date" name="dateFin" id="dateFin" value="{{ challenge.dateFin | date}}">
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="dateFin">
+                                <span class="input__label-content input__label-content--hoshi">Date de fin</span>
+                                </label>
+                                </span>
+                </div>
+                <div class="col-md-4">
+                                <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="number" name="nbMax" id="nbMax" value="{{ challenge.nbrPart }}">
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="nbMax">
+                                <span class="input__label-content input__label-content--hoshi">Nombre de paricipant</span>
+                                </label>
+                                </span>
+                </div>
+                <div class="col-md-4">
+                                <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="text" name="LieuA" id="LieuA" value="{{ challenge.lieuDepart }}">
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="LieuA">
+                                <span class="input__label-content input__label-content--hoshi">Lieu de depart</span>
+                                </label>
+                                </span>
+                </div>
+                <div class="col-md-4">
+                                <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="text" name="LieuD" id="LieuD" value="{{ challenge.lieuArrivee }}">
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="LieuD">
+                                <span class="input__label-content input__label-content--hoshi">lieu d'arrivée</span>
+                                </label>
+                                </span>
+                </div>
+                <div class="col-md-4">
+                                <span class="input input--hoshi">
+                                <input class="input__field input__field--hoshi" type="file" name="image" id="image"   value="{{ challenge.image }}">
+                                <label class="input__label input__label--hoshi input__label--hoshi-color-3" for="iamge">
+                                <span class="input__label-content input__label-content--hoshi">Image</span>
+                                </label>
+                                </span>
+                </div>
+
+                <div class="col-md-4">
+                                <span class="input input--hoshi">
+                                   <input class="btn btn-primary btn-sm" type="submit" value="Modifier">
+
+                                </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </form>
+{% endblock %}
